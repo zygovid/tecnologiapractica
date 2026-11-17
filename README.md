@@ -2,6 +2,14 @@
 
 Web estática para `tecnologiapractica.com`, construida con Astro 5.
 
+## Estado actual
+
+- Web publicada en https://tecnologiapractica.com
+- Repo público: https://github.com/zygovid/tecnologiapractica
+- Cloudflare Pages: proyecto `tecnologiapractica`, despliegue activo https://6ac541c2.tecnologiapractica.pages.dev
+- `www` redirige con 301 al dominio principal.
+- Auto-deploy por Git no configurado: Cloudflare Pages devolvió el error `8000011` al conectar el repo. Los cambios se despliegan con Wrangler.
+
 ## Estructura
 
 ```
@@ -58,35 +66,31 @@ Corrige cualquier dato que no coincida con tu experiencia y añade ejemplos real
 
 ## Despliegue en Cloudflare Pages
 
-### Opción A: desde el dashboard (la más fácil)
+### Estado real del despliegue
 
-1. Sube el proyecto a un repo de GitHub (por ejemplo `tecnologiapractica`).
-2. En Cloudflare: **Workers & Pages → Create application → Pages → Connect to Git**.
-3. Selecciona el repo y configura:
-   - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Node version: 22 o superior (añade variable `NODE_VERSION=22` si hace falta).
-4. Despliega.
+El proyecto ya está desplegado en Cloudflare Pages mediante direct upload. El intento de conectar GitHub desde Cloudflare falló con HTTP 401, código `8000011` (`There is an internal issue with your Cloudflare Pages Git installation...`), así que **no hay auto-deploy por Git** por ahora.
 
-### Opción B: con Wrangler desde la terminal
+Para publicar cambios:
 
 ```sh
-npm install -D wrangler
-npx wrangler pages deploy dist --project-name=tecnologiapractica
+npm run build
+npx wrangler pages deploy dist --project-name=tecnologiapractica --branch=master
 ```
 
-## Conectar el dominio `tecnologiapractica.com`
+Si quieres volver a intentar el auto-deploy, hazlo desde **Cloudflare → Workers & Pages → tecnologiapractica → Settings → Builds & deployments → Connect to Git** con:
 
-En el proyecto de Pages, pestaña **Custom domains → Add custom domain**:
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Node version: 22 o superior (variable `NODE_VERSION=22` si hace falta).
 
-1. Escribe `tecnologiapractica.com`.
-2. Cloudflare te dará un registro CNAME (o lo configura automáticamente al ser el dominio gestionado en la misma cuenta).
-3. Si te pide añadir el CNAME manualmente, ve a **DNS → Records** del dominio y crea:
-   - Tipo: `CNAME`
-   - Name: `@` (o `www`, según te indique)
-   - Target: el valor que te da Pages (tipo `tecnologiapractica.pages.dev`).
+### Dominio y DNS
 
-Espera la propagación (minutos u horas). La web estará en `https://tecnologiapractica.com`.
+Ya configurado en Cloudflare:
+
+- `tecnologiapractica.com` → `tecnologiapractica.pages.dev` (CNAME proxied).
+- `www.tecnologiapractica.com` → `tecnologiapractica.pages.dev` (CNAME proxied).
+- Page Rule de HTTPS forzado en `tecnologiapractica.com/*`.
+- Page Rule 301 de `www.tecnologiapractica.com/*` a `https://tecnologiapractica.com/$1`.
 
 ## Google Search Console y AdSense
 
@@ -98,4 +102,7 @@ Una vez la web esté online:
 
 ## MCP configurados
 
-El archivo `~/.config/opencode/opencode.jsonc` incluye los servidores MCP de GitHub y Cloudflare. Tras reiniciar OpenCode, ejecuta `/mcps` y haz login en ambos.
+El archivo `~/.config/opencode/opencode.jsonc` incluye los servidores MCP de GitHub y Cloudflare.
+
+- Cloudflare MCP: conectado.
+- GitHub MCP: falla con `Incompatible auth server: does not support dynamic client registration`; se usa GitHub CLI (`gh`) en su lugar.
