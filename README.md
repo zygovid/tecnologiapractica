@@ -10,6 +10,7 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 - `www` redirige con 301 al dominio principal.
 - Silo visible: **Electrónica básica** con 6 guías para principiantes.
 - Los 10 artículos anteriores de automatización están como `draft: true` y fuera del sitemap; sus plantillas se conservan en `src/_archived/`.
+- Las rutas antiguas `/automatizacion/*` devuelven `410 Gone` mediante `public/_redirects`.
 - Auto-deploy por Git no configurado: Cloudflare Pages devolvió el error `8000011` al conectar el repo. Los cambios se despliegan con Wrangler.
 
 ## Estructura
