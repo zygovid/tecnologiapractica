@@ -1,0 +1,15 @@
+---
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand">Tecnología<span>Práctica</span></a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="/" class={path === '/' ? 'active' : ''}>Inicio</a>
+      <a href="/automatizacion/" class={path.startsWith('/automatizacion') ? 'active' : ''}>Automatización</a>
+      <a href="/servicios/" class={path.startsWith('/servicios') ? 'active' : ''}>Servicios</a>
+      <a href="/sobre-mi/" class={path.startsWith('/sobre-mi') ? 'active' : ''}>Sobre mí</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Automatización industrial"
+  description="Guías prácticas de PLCs, sensores, variadores, Modbus, HMI y mantenimiento industrial para técnicos y estudiantes."
+>
+  <p class="tag">Silo principal</p>
+  <h1>Automatización industrial</h1>
+  <p class="lead">
+    Todo lo que necesitas para entender y trabajar con PLCs, sensores, actuadores,
+    variadores y comunicaciones industriales. Explicado de forma práctica y con
+    ejemplos aplicables a talleres y plantas reales.
+  </p>
+
+  <h2>Todos los artículos</h2>
+  {posts.map((post) => (
+    <a class="card" href={`/automatizacion/${post.id}/`} style="display:block;color:inherit;text-decoration:none">
+      <p class="tag">{post.data.category}</p>
+      <h2>{post.data.title}</h2>
+      <p>{post.data.description}</p>
+    </a>
+  ))}
+</BaseLayout>
