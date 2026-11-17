@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contenido no disponible"
+  description="Esta página ya no está disponible en Tecnología Práctica."
+  noindex={true}
+>
+  <main id="contenido" class="page-shell">
+    <section class="page-hero">
+      <p class="eyebrow">410 Gone</p>
+      <h1>Este contenido ya no está disponible</h1>
+      <p class="lead">
+        La página que buscas se retiró del sitio. Ahora publicamos guías de electrónica básica
+        pensadas para empezar desde cero.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/electronica-basica/">Ver electrónica básica</a>
+        <a class="button button-secondary" href="/">Ir al inicio</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
