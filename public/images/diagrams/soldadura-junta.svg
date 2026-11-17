@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-label="Comparación entre una junta de soldadura correcta y una junta fría">
+  <rect width="1200" height="520" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Junta de soldadura: bien vs mal</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">Una junta correcta brilla y tiene forma de cono. Una junta fría se ve opaca y agrietada.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+    <g transform="translate(50 135)">
+      <rect width="520" height="330" rx="16" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="260" y="45" text-anchor="middle" font-size="24" font-weight="700" fill="#7ee787">CORRECTA</text>
+      <rect x="70" y="210" width="380" height="34" rx="8" fill="#2f81f7"/>
+      <text x="260" y="234" text-anchor="middle" font-size="15" fill="#0d1117">Pista de cobre</text>
+      <path d="M260 210 L235 150 L285 150 Z" fill="#c0c6cc" stroke="#e6edf3" stroke-width="2"/>
+      <rect x="232" y="95" width="56" height="60" rx="6" fill="#e6edf3" stroke="#9da7b3" stroke-width="2"/>
+      <text x="260" y="132" text-anchor="middle" font-size="16" fill="#0d1117">PIN</text>
+      <text x="260" y="280" text-anchor="middle" font-size="16" fill="#e6edf3">Cono limpio, brillante y continuo</text>
+      <text x="260" y="310" text-anchor="middle" font-size="15" fill="#9da7b3">El estaño moja la pista y abraza el pin</text>
+    </g>
+
+    <g transform="translate(630 135)">
+      <rect width="520" height="330" rx="16" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="260" y="45" text-anchor="middle" font-size="24" font-weight="700" fill="#ff7b72">FRÍA O DEFECTUOSA</text>
+      <rect x="70" y="210" width="380" height="34" rx="8" fill="#2f81f7"/>
+      <text x="260" y="234" text-anchor="middle" font-size="15" fill="#0d1117">Pista de cobre</text>
+      <circle cx="260" cy="160" r="38" fill="#8b8f96" stroke="#ff7b72" stroke-width="3"/>
+      <path d="M235 135 L255 160 L240 180 M280 135 L265 160 L282 182" fill="none" stroke="#ff7b72" stroke-width="4"/>
+      <rect x="232" y="95" width="56" height="60" rx="6" fill="#e6edf3" stroke="#9da7b3" stroke-width="2"/>
+      <text x="260" y="132" text-anchor="middle" font-size="16" fill="#0d1117">PIN</text>
+      <text x="260" y="280" text-anchor="middle" font-size="16" fill="#e6edf3">Opaca, redondeada y con grietas</text>
+      <text x="260" y="310" text-anchor="middle" font-size="15" fill="#9da7b3">Suele aparecer por calor insuficiente o movimiento</text>
+    </g>
+  </g>
+</svg>

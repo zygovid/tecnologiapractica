@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Circuito con fuente de 5 voltios, resistencia de 150 ohmios y LED rojo con la fórmula de cálculo">
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">LED + resistencia limitadora</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">El LED no limita la corriente por sí solo: necesita una resistencia en serie.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+    <g transform="translate(60 140)">
+      <rect width="620" height="360" rx="16" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="310" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#f0a500">Circuito correcto</text>
+
+      <rect x="70" y="180" width="120" height="70" rx="10" fill="#0d1117" stroke="#58a6ff" stroke-width="3"/>
+      <text x="130" y="208" text-anchor="middle" font-size="18" fill="#58a6ff">5 V</text>
+      <text x="130" y="234" text-anchor="middle" font-size="14" fill="#9da7b3">alimentación</text>
+
+      <line x1="190" y1="215" x2="250" y2="215" stroke="#58a6ff" stroke-width="6"/>
+      <path d="M250 215 L265 190 L285 240 L305 190 L325 240 L345 190 L365 215" fill="none" stroke="#e6edf3" stroke-width="5" stroke-linejoin="round"/>
+      <text x="307" y="175" text-anchor="middle" font-size="16" fill="#e6edf3">150 Ω</text>
+      <line x1="365" y1="215" x2="430" y2="215" stroke="#58a6ff" stroke-width="6"/>
+
+      <circle cx="485" cy="215" r="44" fill="#ff4d4d" opacity="0.18" stroke="#ff6b6b" stroke-width="4"/>
+      <path d="M462 185 L510 215 L462 245 Z" fill="#ff6b6b"/>
+      <line x1="510" y1="185" x2="510" y2="245" stroke="#ff6b6b" stroke-width="8"/>
+      <text x="485" y="292" text-anchor="middle" font-size="16" fill="#e6edf3">LED rojo</text>
+
+      <path d="M485 259 V320 H130 V250" fill="none" stroke="#58a6ff" stroke-width="6"/>
+      <path d="M105 320 H155 M117 334 H143" stroke="#9da7b3" stroke-width="4"/>
+      <text x="310" y="345" text-anchor="middle" font-size="15" fill="#9da7b3">retorno a masa (GND)</text>
+    </g>
+
+    <g transform="translate(710 140)">
+      <rect width="430" height="360" rx="16" fill="#0d1117" stroke="#f0a500" stroke-width="2"/>
+      <text x="215" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#f0a500">Cálculo rápido</text>
+      <text x="35" y="100" font-size="20" fill="#e6edf3">R = (V alimentación − V LED) / I</text>
+      <text x="35" y="145" font-size="18" fill="#9da7b3">V LED rojo ≈ 2 V</text>
+      <text x="35" y="180" font-size="18" fill="#9da7b3">I objetivo ≈ 0,02 A (20 mA)</text>
+      <line x1="35" y1="205" x2="395" y2="205" stroke="#30363d" stroke-width="2"/>
+      <text x="35" y="250" font-size="22" fill="#e6edf3">R = (5 − 2) / 0,02</text>
+      <text x="35" y="292" font-size="22" fill="#e6edf3">R = 150 Ω</text>
+      <rect x="35" y="320" width="360" height="60" rx="10" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="55" y="344" font-size="16" fill="#7ee787">Elige 150 Ω o el valor normalizado</text>
+      <text x="55" y="368" font-size="15" fill="#9da7b3">más cercano hacia arriba si dudas.</text>
+    </g>
+  </g>
+</svg>

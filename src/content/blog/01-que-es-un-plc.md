@@ -2,6 +2,8 @@
 title: "Qué es un PLC y cómo elegir el primero"
 description: "Guía práctica para entender qué hace un PLC, en qué se diferencia de un ordenador y qué criterios usar para elegir tu primer controlador industrial."
 pubDate: 2026-11-17
+section: "automatizacion"
+draft: true
 category: "PLC"
 tags: ["PLC", "principiantes", "automatización"]
 ---

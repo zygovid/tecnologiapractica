@@ -2,6 +2,8 @@
 title: "Arduino vs PLC: cuándo usar cada uno en un proyecto real"
 description: "Comparativa práctica entre Arduino y PLC para decidir qué controlador usar según el entorno, la fiabilidad y el presupuesto."
 pubDate: 2026-11-22
+section: "automatizacion"
+draft: true
 category: "Robótica"
 tags: ["arduino", "PLC", "robótica", "proyectos"]
 ---

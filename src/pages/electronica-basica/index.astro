@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PostCard from '../../components/PostCard.astro';
+import { sections } from '../../lib/sections';
+
+const section = sections['electronica-basica'];
+
+const posts = (await getCollection('blog', ({ data }) =>
+  !data.draft && data.section === 'electronica-basica',
+)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title={section.title} description={section.description}>
+  <Breadcrumbs sectionLabel={section.label} sectionHref={section.basePath} />
+
+  <header class="section-hero">
+    <p class="tag">Guías para principiantes</p>
+    <h1>{section.title}</h1>
+    <p class="lead">{section.lead}</p>
+  </header>
+
+  {posts.length > 0 ? (
+    <div class="post-grid">
+      {posts.map((post, index) => <PostCard post={post} featured={index === 0} />)}
+    </div>
+  ) : (
+    <p class="empty-state">Los primeros artículos de esta sección están en camino.</p>
+  )}
+</BaseLayout>

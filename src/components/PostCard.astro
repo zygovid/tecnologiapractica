@@ -1,0 +1,41 @@
+---
+import { Picture } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { sectionConfig, type SectionId } from '../lib/sections';
+import { readingMinutes } from '../lib/reading-time';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const section = sectionConfig(post.data.section as SectionId);
+const minutes = readingMinutes(post.body);
+const href = `${section.basePath}${post.id}/`;
+---
+
+<article class="post-card">
+  <a class="post-card__link" href={href} aria-label={`Leer ${post.data.title}`}>
+    {post.data.cover && (
+      <div class="post-card__media">
+        <Picture
+          src={post.data.cover}
+          formats={['avif', 'webp']}
+          alt={post.data.coverAlt ?? post.data.title}
+          layout="constrained"
+          width={1200}
+          height={630}
+          loading={featured ? 'eager' : 'lazy'}
+          fetchpriority={featured ? 'high' : 'auto'}
+        />
+      </div>
+    )}
+    <div class="post-card__body">
+      <p class="post-card__eyebrow">{section.label} · {post.data.category}</p>
+      <h3>{post.data.title}</h3>
+      <p class="post-card__description">{post.data.description}</p>
+      <p class="post-card__meta">{minutes} min de lectura <span aria-hidden="true">→</span></p>
+    </div>
+  </a>
+</article>

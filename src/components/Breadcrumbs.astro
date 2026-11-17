@@ -1,0 +1,17 @@
+---
+interface Props {
+  sectionLabel: string;
+  sectionHref: string;
+  title?: string;
+}
+
+const { sectionLabel, sectionHref, title } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Ruta de navegación">
+  <ol>
+    <li><a href="/">Inicio</a></li>
+    <li><a href={sectionHref}>{sectionLabel}</a></li>
+    {title && <li aria-current="page">{title}</li>}
+  </ol>
+</nav>

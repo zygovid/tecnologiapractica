@@ -1,36 +1,53 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { sections, visibleSectionIds } from '../lib/sections';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = await getCollection('blog', ({ data }) =>
+  !data.draft && visibleSectionIds.includes(data.section),
+);
+
+const grouped = visibleSectionIds.map((id) => ({
+  section: sections[id],
+  posts: posts
+    .filter((post) => post.data.section === id)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+}));
 ---
 
 <BaseLayout
   title="Tecnología Práctica"
-  description="Automatización industrial, robótica y electrónica explicadas de forma práctica para técnicos, estudiantes y talleres."
+  description="Electrónica básica explicada de forma clara y práctica: componentes, herramientas y circuitos para empezar desde cero."
 >
-  <section>
+  <section class="hero">
+    <p class="tag">Electrónica desde cero</p>
     <h1>Tecnología práctica, sin rodeos</h1>
     <p class="lead">
-      Aquí explico automatización industrial, robótica y electrónica de forma clara y
-      aplicable. Contenido para técnicos, estudiantes y talleres que quieren resolver
-      problemas reales, no solo teoría.
+      Aprende componentes, herramientas y circuitos de baja tensión con explicaciones claras,
+      ejemplos reales y sin tecnicismos innecesarios.
     </p>
-
-    <div class="notice">
-      <strong>Estás empezando:</strong> la sección de <a href="/automatizacion/">Automatización industrial</a>
-      es la primera que hemos desarrollado. Próximamente añadiremos electrónica, programación
-      e IA aplicada.
-    </div>
-
-    <h2>Últimos artículos</h2>
-    {posts.map((post) => (
-      <a class="card" href={`/automatizacion/${post.id}/`} style="display:block;color:inherit;text-decoration:none">
-        <p class="tag">{post.data.category}</p>
-        <h2>{post.data.title}</h2>
-        <p>{post.data.description}</p>
-      </a>
-    ))}
+    <p class="hero__note">Guías pensadas para quien está empezando de verdad.</p>
   </section>
+
+  {grouped.map(({ section, posts: sectionPosts }) => (
+    <section class="section-block" aria-labelledby={`section-${section.id}`}>
+      <div class="section-block__head">
+        <div>
+          <p class="eyebrow">Sección</p>
+          <h2 id={`section-${section.id}`}>{section.title}</h2>
+          <p>{section.lead}</p>
+        </div>
+        <a class="section-block__link" href={section.basePath}>Ver todos <span aria-hidden="true">→</span></a>
+      </div>
+
+      {sectionPosts.length > 0 ? (
+        <div class="post-grid">
+          {sectionPosts.map((post, index) => <PostCard post={post} featured={index === 0} />)}
+        </div>
+      ) : (
+        <p class="empty-state">Los primeros artículos de esta sección están en camino.</p>
+      )}
+    </section>
+  ))}
 </BaseLayout>

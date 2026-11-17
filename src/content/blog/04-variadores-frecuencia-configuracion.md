@@ -2,6 +2,8 @@
 title: "Variadores de frecuencia: configuración paso a paso"
 description: "Cómo parametrizar un variador de frecuencia por primera vez: motor, límites, rampas y comprobaciones antes de arrancar."
 pubDate: 2026-11-20
+section: "automatizacion"
+draft: true
 category: "Variadores"
 tags: ["variador", "motor", "frecuencia", "mantenimiento"]
 ---

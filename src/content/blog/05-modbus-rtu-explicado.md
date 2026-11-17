@@ -2,6 +2,8 @@
 title: "Modbus RTU explicado fácil: cableado y direcciones"
 description: "Introducción práctica al protocolo Modbus RTU: cómo se cablea RS-485, qué son las direcciones esclavas y cómo leer un registro."
 pubDate: 2026-11-21
+section: "automatizacion"
+draft: true
 category: "Comunicaciones"
 tags: ["modbus", "rs485", "comunicaciones", "PLC"]
 ---

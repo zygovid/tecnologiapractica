@@ -2,6 +2,8 @@
 title: "Sensor inductivo vs capacitivo: diferencias y cuándo usar cada uno"
 description: "Comparativa clara entre sensores inductivos y capacitivos, con ejemplos prácticos para elegir el correcto en una línea de producción."
 pubDate: 2026-11-18
+section: "automatizacion"
+draft: true
 category: "Sensores"
 tags: ["sensores", "inductivo", "capacitivo", "automatización"]
 ---

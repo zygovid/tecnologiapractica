@@ -2,6 +2,8 @@
 title: "Cómo leer un esquema eléctrico industrial: símbolos básicos"
 description: "Aprende a interpretar los símbolos y las zonas de un esquema eléctrico industrial paso a paso, desde la alimentación hasta la bobina."
 pubDate: 2026-11-23
+section: "automatizacion"
+draft: true
 category: "Electricidad"
 tags: ["esquemas", "electricidad", "símbolos", "mantenimiento"]
 ---

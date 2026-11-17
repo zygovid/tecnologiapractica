@@ -5,4 +5,7 @@ export default defineConfig({
   site: 'https://tecnologiapractica.com',
   output: 'static',
   integrations: [sitemap()],
+  image: {
+    responsiveStyles: true,
+  },
 });

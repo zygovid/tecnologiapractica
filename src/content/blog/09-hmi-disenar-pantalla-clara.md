@@ -2,6 +2,8 @@
 title: "HMI: cómo diseñar una pantalla clara y útil"
 description: "Principios prácticos de diseño HMI industrial: jerarquía visual, colores, alarmas y pantallas que ayuden al operario en lugar de confundirlo."
 pubDate: 2026-11-25
+section: "automatizacion"
+draft: true
 category: "HMI"
 tags: ["HMI", "SCADA", "diseño", "operación"]
 ---

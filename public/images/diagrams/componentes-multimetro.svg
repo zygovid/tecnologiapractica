@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-label="Cómo comprobar diodos, condensadores y transistores con un multímetro">
+  <rect width="1200" height="520" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Componentes básicos con multímetro</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">Apaga el circuito y descarga condensadores antes de medir.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+    <g transform="translate(40 130)">
+      <rect width="355" height="340" rx="16" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="177" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#f0a500">DIODO</text>
+      <line x1="70" y1="170" x2="285" y2="170" stroke="#58a6ff" stroke-width="6"/>
+      <path d="M150 135 L150 205 L205 170 Z" fill="#e6edf3"/>
+      <line x1="205" y1="130" x2="205" y2="210" stroke="#e6edf3" stroke-width="7"/>
+      <circle cx="100" cy="170" r="10" fill="#ff6b6b"/>
+      <circle cx="255" cy="170" r="10" fill="#9da7b3"/>
+      <text x="177" y="240" text-anchor="middle" font-size="16" fill="#e6edf3">Roja al ánodo · Negra al cátodo</text>
+      <text x="177" y="272" text-anchor="middle" font-size="16" fill="#7ee787">Da ~0,6 V en un diodo de silicio</text>
+      <text x="177" y="304" text-anchor="middle" font-size="16" fill="#ff7b72">Al revés debe marcar sobrecarga (OL)</text>
+    </g>
+
+    <g transform="translate(422 130)">
+      <rect width="355" height="340" rx="16" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="177" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#f0a500">CONDENSADOR</text>
+      <line x1="70" y1="170" x2="130" y2="170" stroke="#58a6ff" stroke-width="6"/>
+      <line x1="130" y1="130" x2="130" y2="210" stroke="#e6edf3" stroke-width="7"/>
+      <line x1="165" y1="130" x2="165" y2="210" stroke="#e6edf3" stroke-width="7"/>
+      <line x1="165" y1="170" x2="285" y2="170" stroke="#58a6ff" stroke-width="6"/>
+      <text x="177" y="240" text-anchor="middle" font-size="16" fill="#e6edf3">Modo resistencia u ohios</text>
+      <text x="177" y="272" text-anchor="middle" font-size="16" fill="#7ee787">La lectura sube poco a poco</text>
+      <text x="177" y="304" text-anchor="middle" font-size="16" fill="#ff7b72">Si marca 0 Ω fijo, está en corte</text>
+    </g>
+
+    <g transform="translate(804 130)">
+      <rect width="355" height="340" rx="16" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="177" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#f0a500">TRANSISTOR NPN</text>
+      <circle cx="177" cy="180" r="76" fill="none" stroke="#58a6ff" stroke-width="4"/>
+      <line x1="110" y1="145" x2="165" y2="175" stroke="#e6edf3" stroke-width="6"/>
+      <line x1="110" y1="215" x2="165" y2="185" stroke="#e6edf3" stroke-width="6"/>
+      <line x1="177" y1="104" x2="177" y2="165" stroke="#e6edf3" stroke-width="6"/>
+      <text x="92" y="138" font-size="15" fill="#e6edf3">C</text>
+      <text x="92" y="228" font-size="15" fill="#e6edf3">E</text>
+      <text x="190" y="98" font-size="15" fill="#e6edf3">B</text>
+      <text x="177" y="278" text-anchor="middle" font-size="16" fill="#e6edf3">Busca la patilla base (B)</text>
+      <text x="177" y="306" text-anchor="middle" font-size="15" fill="#9da7b3">Comprueba B→E y B→C como dos diodos</text>
+    </g>
+  </g>
+</svg>

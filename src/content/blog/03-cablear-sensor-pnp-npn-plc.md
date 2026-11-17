@@ -2,6 +2,8 @@
 title: "Cómo cablear un sensor PNP o NPN a un PLC (paso a paso)"
 description: "Entiende la diferencia entre sensores PNP y NPN, cómo identificarlos y cómo conectarlos correctamente a una entrada digital de PLC."
 pubDate: 2026-11-19
+section: "automatizacion"
+draft: true
 category: "Sensores"
 tags: ["sensores", "PNP", "NPN", "cableado", "PLC"]
 ---

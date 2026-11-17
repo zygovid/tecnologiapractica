@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Código de colores de una resistencia de cuatro bandas: marrón, negro, rojo y dorado">
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Cómo leer una resistencia de 4 bandas</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">Las dos primeras bandas son dígitos, la tercera es el multiplicador y la cuarta la tolerancia.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+    <g transform="translate(60 150)">
+      <line x1="0" y1="120" x2="1080" y2="120" stroke="#58a6ff" stroke-width="8"/>
+      <path d="M260 120 L300 70 L360 170 L420 70 L480 170 L540 70 L600 170 L660 70 L720 170 L780 120" fill="#e6edf3" stroke="#9da7b3" stroke-width="3" stroke-linejoin="round"/>
+      <rect x="365" y="70" width="26" height="100" fill="#8b4513"/>
+      <rect x="425" y="70" width="26" height="100" fill="#111111"/>
+      <rect x="485" y="70" width="26" height="100" fill="#d32f2f"/>
+      <rect x="665" y="70" width="26" height="100" fill="#d4af37"/>
+      <text x="378" y="205" text-anchor="middle" font-size="15" fill="#e6edf3">1</text>
+      <text x="438" y="205" text-anchor="middle" font-size="15" fill="#e6edf3">0</text>
+      <text x="498" y="205" text-anchor="middle" font-size="15" fill="#e6edf3">×100</text>
+      <text x="678" y="205" text-anchor="middle" font-size="15" fill="#e6edf3">±5%</text>
+      <path d="M378 215 V250 M438 215 V250 M498 215 V250 M678 215 V250" stroke="#30363d" stroke-width="2"/>
+      <text x="558" y="300" text-anchor="middle" font-size="34" font-weight="700" fill="#f0a500">10 × 100 = 1000 Ω = 1 kΩ ±5%</text>
+    </g>
+
+    <g transform="translate(60 385)" font-size="17">
+      <rect width="230" height="130" rx="14" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="20" y="36" font-size="19" font-weight="700" fill="#e6edf3">Banda 1 y 2</text>
+      <text x="20" y="68" fill="#9da7b3">Negro 0 · Marrón 1 · Rojo 2</text>
+      <text x="20" y="94" fill="#9da7b3">Naranja 3 · Amarillo 4 · Verde 5</text>
+      <text x="20" y="120" fill="#9da7b3">Azul 6 · Violeta 7 · Gris 8 · Blanco 9</text>
+
+      <rect x="255" width="230" height="130" rx="14" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="275" y="36" font-size="19" font-weight="700" fill="#e6edf3">Multiplicador</text>
+      <text x="275" y="68" fill="#9da7b3">Negro ×1 · Marrón ×10</text>
+      <text x="275" y="94" fill="#9da7b3">Rojo ×100 · Naranja ×1k</text>
+      <text x="275" y="120" fill="#9da7b3">Amarillo ×10k · Verde ×100k</text>
+
+      <rect x="510" width="230" height="130" rx="14" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="530" y="36" font-size="19" font-weight="700" fill="#e6edf3">Tolerancia</text>
+      <text x="530" y="68" fill="#9da7b3">Dorado ±5% · Plateado ±10%</text>
+      <text x="530" y="94" fill="#9da7b3">Marrón ±1% · Rojo ±2%</text>
+      <text x="530" y="120" fill="#9da7b3">Sin banda ±20%</text>
+
+      <rect x="765" width="375" height="130" rx="14" fill="#0d1117" stroke="#f0a500" stroke-width="2"/>
+      <text x="790" y="36" font-size="19" font-weight="700" fill="#f0a500">Consejo</text>
+      <text x="790" y="68" fill="#e6edf3">Empieza siempre por la banda más cercana a un extremo.</text>
+      <text x="790" y="96" fill="#e6edf3">Si hay una banda dorada o plateada, esa es la tolerancia.</text>
+      <text x="790" y="122" fill="#9da7b3">Confirma el valor con el multímetro antes de soldar.</text>
+    </g>
+  </g>
+</svg>

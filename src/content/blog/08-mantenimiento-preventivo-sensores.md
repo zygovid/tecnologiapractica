@@ -2,6 +2,8 @@
 title: "Mantenimiento preventivo de sensores y actuadores"
 description: " Checklist práctico de mantenimiento para sensores, cilindros y actuadores industriales: qué revisar, cada cuánto y qué síntomas anticipan fallos."
 pubDate: 2026-11-24
+section: "automatizacion"
+draft: true
 category: "Mantenimiento"
 tags: ["mantenimiento", "sensores", "actuadores", "fiabilidad"]
 ---

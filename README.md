@@ -8,29 +8,45 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 - Repo público: https://github.com/zygovid/tecnologiapractica
 - Cloudflare Pages: proyecto `tecnologiapractica`, despliegue activo https://6ac541c2.tecnologiapractica.pages.dev
 - `www` redirige con 301 al dominio principal.
+- Silo visible: **Electrónica básica** con 6 guías para principiantes.
+- Los 10 artículos anteriores de automatización están como `draft: true` y fuera del sitemap; sus plantillas se conservan en `src/_archived/`.
 - Auto-deploy por Git no configurado: Cloudflare Pages devolvió el error `8000011` al conectar el repo. Los cambios se despliegan con Wrangler.
 
 ## Estructura
 
 ```
 src/
-  content/blog/        → 10 artículos del silo de automatización
-  content.config.ts    → esquema de la colección (Astro 5 + glob loader)
-  layouts/             → BaseLayout (SEO, GA4, Consent Mode) y ArticleLayout
-  components/          → Header, Footer, CookieBanner (Consent Mode v2)
+  content/blog/           → artículos Markdown (6 visibles + 10 borradores)
+  content.config.ts       → esquema con section, cover, coverAlt y draft
+  lib/
+    sections.ts           → configuración central de silos y navegación
+    reading-time.ts       → cálculo de minutos de lectura
+  assets/covers/          → portadas WebP originales
+  layouts/                → BaseLayout (SEO, OG, JSON-LD) y ArticleLayout
+  components/             → Header, Footer, CookieBanner, PostCard, Breadcrumbs
   pages/
-    index.astro        → portada
-    automatizacion/    → índice del silo + plantilla [...slug].astro
+    index.astro           → portada agrupada por sección
+    electronica-basica/   → índice y plantilla [...slug].astro
     servicios.astro
     sobre-mi.astro
     aviso-legal.astro
     privacidad.astro
     cookies.astro
+  _archived/              → plantillas antiguas de automatización (fuera de rutas)
   styles/global.css
 public/
+  images/diagrams/        → diagramas SVG originales
   robots.txt
   favicon.svg
 ```
+
+## Contenido e imágenes
+
+- Cada artículo visible usa `section: "electronica-basica"`, portada WebP y `coverAlt`.
+- Las portadas se generan en `src/assets/covers/` y Astro las convierte a AVIF/WebP con `srcset`.
+- Los diagramas SVG viven en `public/images/diagrams/` y se insertan con `<figure>` y `<figcaption>`.
+- Todos los artículos incluyen JSON-LD `BlogPosting`, canonical, `og:image` y enlaces de retorno.
+- GA4 permanece desactivado mientras `G-XXXXXXXXXX` siga sin sustituirse.
 
 ## Comandos
 
@@ -43,9 +59,10 @@ npm run preview  # ver el build localmente
 
 ## Antes de publicar: datos que debes rellenar
 
-1. **Google Analytics 4**
-   - Edita `src/layouts/BaseLayout.astro` y sustituye `G-XXXXXXXXXX` por tu ID real.
-   - Si no quieres Analytics todavía, deja el placeholder: con Consent Mode no envía datos hasta que el usuario acepta, pero conviene poner el ID correcto.
+ 1. **Google Analytics 4**
+    - Edita `src/layouts/BaseLayout.astro` y sustituye `G-XXXXXXXXXX` por tu ID real.
+    - Mientras el placeholder siga ahí, el script de GA4 no se carga. Consent Mode v2 ya está preparado.
+
 
 2. **Correo de contacto**
    - Aparece en `/servicios/`, `/aviso-legal/` y `/privacidad/`: `hola@tecnologiapractica.com`.
@@ -54,15 +71,18 @@ npm run preview  # ver el build localmente
 3. **Datos del titular en el aviso legal**
    - Revisa `src/pages/aviso-legal.astro` y añade tus datos reales (nombre/NIF o la información que exija tu jurisdicción). **No es asesoramiento legal**: revisa la normativa aplicable.
 
-## Revisión técnica de los artículos
+## Revisión de artículos
 
-Los 10 artículos están escritos, pero **revísalos antes de publicarlos**, especialmente:
+Los 6 artículos visibles son nuevos y están pensados para principiantes:
 
-- `03-cablear-sensor-pnp-npn-plc.md` (esquemas de cableado)
-- `04-variadores-frecuencia-configuracion.md` (parámetros y seguridad)
-- `05-modbus-rtu-explicado.md` (tramas y cableado RS-485)
+- `11-multimetro-digital.md`
+- `12-codigo-colores-resistencias.md`
+- `13-soldadura-basica.md`
+- `14-led-resistencia.md`
+- `15-componentes-multimetro.md`
+- `16-conectores-basicos.md`
 
-Corrige cualquier dato que no coincida con tu experiencia y añade ejemplos reales si tienes.
+Los 10 artículos de automatización siguen en `src/content/blog/` como borradores (`draft: true`). No se muestran ni entran en el sitemap. Para volver a publicarlos, cambia `draft` a `false`, devuelve las plantillas desde `src/_archived/automatizacion/` a `src/pages/automatizacion/` y añade `automatizacion` a `visibleSectionIds` en `src/lib/sections.ts`.
 
 ## Despliegue en Cloudflare Pages
 

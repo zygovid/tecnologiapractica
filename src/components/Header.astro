@@ -1,15 +1,29 @@
 ---
+import { sections, visibleSectionIds } from '../lib/sections';
+
 const path = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Inicio', active: path === '/' },
+  ...visibleSectionIds.map((id) => ({
+    href: sections[id].basePath,
+    label: sections[id].navLabel,
+    active: path.startsWith(sections[id].basePath),
+  })),
+  { href: '/servicios/', label: 'Servicios', active: path.startsWith('/servicios') },
+  { href: '/sobre-mi/', label: 'Sobre mí', active: path.startsWith('/sobre-mi') },
+];
 ---
 
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap site-header__inner">
     <a href="/" class="brand">Tecnología<span>Práctica</span></a>
     <nav class="nav" aria-label="Navegación principal">
-      <a href="/" class={path === '/' ? 'active' : ''}>Inicio</a>
-      <a href="/automatizacion/" class={path.startsWith('/automatizacion') ? 'active' : ''}>Automatización</a>
-      <a href="/servicios/" class={path.startsWith('/servicios') ? 'active' : ''}>Servicios</a>
-      <a href="/sobre-mi/" class={path.startsWith('/sobre-mi') ? 'active' : ''}>Sobre mí</a>
+      {navItems.map((item) => (
+        <a href={item.href} class={item.active ? 'active' : ''} aria-current={item.active ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
     </nav>
   </div>
 </header>

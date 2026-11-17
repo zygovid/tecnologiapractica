@@ -2,6 +2,8 @@
 title: "Cómo empezar en automatización industrial desde cero"
 description: "Una ruta de aprendizaje realista para iniciarse en automatización industrial: qué estudiar primero, qué prácticas hacer y cómo construir un portafolio."
 pubDate: 2026-11-26
+section: "automatizacion"
+draft: true
 category: "Carrera"
 tags: ["carrera", "automatización", "aprendizaje", "empleo"]
 ---
