@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { legalInfo, hasLegalIdentity } from '../lib/legal';
 ---
 
 <BaseLayout
@@ -7,25 +8,59 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Aviso legal del sitio web Tecnología Práctica."
 >
   <h1>Aviso legal</h1>
+  <p class="meta">Última actualización: 18 de noviembre de 2026</p>
 
   <h2>Datos del titular</h2>
+  {hasLegalIdentity ? (
+    <>
+      <p>
+        En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad
+        de la Información y de Comercio Electrónico, se informa de los siguientes datos:
+      </p>
+      <ul>
+        <li><strong>Titular:</strong> {legalInfo.name}</li>
+        <li><strong>NIF/CIF:</strong> {legalInfo.nif}</li>
+        <li><strong>Domicilio:</strong> {legalInfo.address}</li>
+        <li>
+          <strong>Correo electrónico:</strong>
+          <a href={`mailto:${legalInfo.email}`}>{legalInfo.email}</a>
+        </li>
+        {legalInfo.phone && <li><strong>Teléfono:</strong> {legalInfo.phone}</li>}
+        <li><strong>Actividad:</strong> {legalInfo.activity}</li>
+      </ul>
+    </>
+  ) : (
+    <>
+      <p>
+        El titular de este sitio web es el responsable de Tecnología Práctica.
+        Correo de contacto:
+        <a href={`mailto:${legalInfo.email}`}>{legalInfo.email}</a>.
+      </p>
+      {import.meta.env.DEV && (
+        <p class="notice">
+          Para completar el aviso legal, rellena los datos de
+          <code>src/lib/legal.ts</code> antes de publicar o solicitar AdSense.
+        </p>
+      )}
+    </>
+  )}
+
+  <h2>Objeto y condiciones de uso</h2>
   <p>
-    El titular de este sitio web es el responsable de Tecnología Práctica.
-    Correo de contacto: <a href="mailto:hola@tecnologiapractica.com">hola@tecnologiapractica.com</a>.
+    Este sitio web tiene carácter divulgativo y ofrece información sobre electrónica,
+    automatización y temas técnicos relacionados. El acceso es gratuito y implica la
+    aceptación de las presentes condiciones. El usuario se compromete a hacer un uso
+    adecuado del contenido y a no emplearlo con fines ilícitos o que puedan dañar a
+    terceros.
   </p>
 
-  <h2>Condiciones de uso</h2>
+  <h2>Propiedad intelectual e industrial</h2>
   <p>
-    El acceso a este sitio implica la aceptación de las presentes condiciones. El usuario
-    se compromete a hacer un uso adecuado del contenido y a no emplearlo con fines
-    ilícitos o que puedan dañar a terceros.
-  </p>
-
-  <h2>Propiedad intelectual</h2>
-  <p>
-    Los textos, imágenes y demás elementos de este sitio están protegidos por las normas
-    de propiedad intelectual. Queda prohibida su reproducción total o parcial sin
-    autorización expresa, salvo las citas legales permitidas.
+    Los textos, imágenes, esquemas, marcas y demás elementos de este sitio están
+    protegidos por las normas de propiedad intelectual e industrial. Queda prohibida su
+    reproducción total o parcial sin autorización expresa, salvo las citas legales
+    permitidas. Los nombres de productos y marcas de terceros pertenecen a sus
+    respectivos titulares.
   </p>
 
   <h2>Responsabilidad</h2>
@@ -33,13 +68,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     El contenido tiene fines divulgativos y educativos. Las recomendaciones técnicas
     deben ser verificadas por personal cualificado antes de aplicarse en instalaciones
     reales. El titular no se hace responsable de los daños derivados del uso inadecuado
-    de la información publicada.
+    de la información publicada ni de las decisiones tomadas a partir de ella.
   </p>
 
   <h2>Enlaces de terceros</h2>
   <p>
     Este sitio puede contener enlaces a páginas de terceros. No nos hacemos responsables
-    del contenido ni de las prácticas de privacidad de dichos sitios.
+    del contenido, disponibilidad ni prácticas de privacidad de dichos sitios. La
+    inclusión de un enlace no implica relación, aprobación o recomendación.
+  </p>
+
+  <h2>Protección de datos y cookies</h2>
+  <p>
+    El tratamiento de datos personales se explica en la
+    <a href="/privacidad/">política de privacidad</a>. El uso de cookies y tecnologías
+    similares se detalla en la <a href="/cookies/">política de cookies</a>.
+  </p>
+
+  <h2>Legislación aplicable</h2>
+  <p>
+    Las presentes condiciones se rigen por la legislación española. Cualquier
+    controversia se someterá a los juzgados y tribunales que correspondan conforme a
+    derecho.
+  </p>
+
+  <h2>Contacto</h2>
+  <p>
+    Para cualquier consulta relacionada con este aviso legal, escribe a
+    <a href={`mailto:${legalInfo.email}`}>{legalInfo.email}</a>.
   </p>
 
   <p><a href="/">Volver al inicio</a></p>

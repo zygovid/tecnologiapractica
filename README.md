@@ -13,6 +13,9 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 - Las rutas antiguas `/automatizacion/*` redirigen a una página `noindex` mediante `public/_redirects`.
 - Auto-deploy con GitHub Actions (`.github/workflows/deploy.yml`). Cloudflare Pages sigue siendo un proyecto Direct Upload; el workflow compila y despliega con Wrangler.
 - GA4 activo con el ID de medición `G-C0MP2F89KS` y Consent Mode v2 (denegado hasta aceptar cookies).
+- El consentimiento se puede reabrir desde el footer y desde la política de cookies para cambiar la elección.
+- SEO técnico: `WebSite`/`BlogPosting`/`BreadcrumbList` JSON-LD, 404 personalizada y cabeceras de seguridad en `public/_headers`.
+- Correo `hola@tecnologiapractica.com` activo con Cloudflare Email Routing: reenvía a un correo privado. Solo recepción; las respuestas salen desde esa cuenta personal.
 
 ## Estructura
 
@@ -21,16 +24,19 @@ src/
   content/blog/           → artículos Markdown (6 visibles + 10 borradores)
   content.config.ts       → esquema con section, cover, coverAlt y draft
   lib/
+    legal.ts              → datos del titular usados en las páginas legales
     sections.ts           → configuración central de silos y navegación
     reading-time.ts       → cálculo de minutos de lectura
   assets/covers/          → portadas WebP originales
   layouts/                → BaseLayout (SEO, OG, JSON-LD) y ArticleLayout
   components/             → Header, Footer, CookieBanner, PostCard, Breadcrumbs
   pages/
+    404.astro             → página no encontrada
     index.astro           → portada agrupada por sección
     electronica-basica/   → índice y plantilla [...slug].astro
     servicios.astro
     sobre-mi.astro
+    contacto.astro
     aviso-legal.astro
     privacidad.astro
     cookies.astro
@@ -38,6 +44,7 @@ src/
   styles/global.css
 public/
   images/diagrams/        → diagramas SVG originales
+  _headers                → cabeceras de seguridad de Cloudflare Pages
   robots.txt
   favicon.svg
 ```
@@ -61,12 +68,17 @@ npm run preview  # ver el build localmente
 
 ## Configuración pendiente
 
-1. **Correo de contacto**
-   - Aparece en `/servicios/`, `/aviso-legal/` y `/privacidad/`: `hola@tecnologiapractica.com`.
-   - Créalo en Cloudflare (Email Routing) o redirígelo a tu Gmail.
-
-2. **Datos del titular en el aviso legal**
-   - Revisa `src/pages/aviso-legal.astro` y añade tus datos reales (nombre/NIF o la información que exija tu jurisdicción). **No es asesoramiento legal**: revisa la normativa aplicable.
+1. **Datos del titular**
+   - Rellena `src/lib/legal.ts` con nombre o razón social, NIF/CIF, domicilio y, opcionalmente, teléfono. Se usan en `aviso-legal.astro` y `privacidad.astro`.
+   - Mientras estén vacíos, el aviso legal mantiene un texto genérico y no cumple por completo el artículo 10 de la LSSI.
+2. **Search Console**
+   - Crear la propiedad de dominio `tecnologiapractica.com` y verificar con un TXT en Cloudflare.
+   - Enviar `https://tecnologiapractica.com/sitemap-index.xml`.
+3. **AdSense**
+   - No hay código de AdSense, `ads.txt` ni CMP certificada todavía.
+   - Solicitar AdSense cuando estén completos los datos legales y haya más contenido.
+4. **CMP y cookies**
+   - El banner actual usa Consent Mode v2, pero no es una CMP certificada por Google para tráfico del EEE/Reino Unido. Habrá que integrar una antes de servir anuncios en esas regiones.
 
 ## Revisión de artículos
 
@@ -117,11 +129,13 @@ Ya configurado en Cloudflare:
 
 ## Google Search Console y AdSense
 
-Una vez la web esté online:
+Estado actual: la web está online, el sitemap responde 200 y `robots.txt` lo referencia. Search Console sigue pendiente de verificación y AdSense no está integrado.
 
-1. Añade `tecnologiapractica.com` en Search Console (verificación por registro DNS o por archivo HTML).
-2. Solicita AdSense cuando tengas las páginas legales y suficiente contenido.
-3. Inserta el código de AdSense en `BaseLayout.astro` **solo después** de que el banner de consentimiento esté funcionando (ya está implementado Consent Mode v2).
+1. Añade `tecnologiapractica.com` en Search Console como propiedad de dominio y verifica con el TXT que proporcione Google.
+2. Envía `https://tecnologiapractica.com/sitemap-index.xml`.
+3. Completa `src/lib/legal.ts` y revisa las páginas legales antes de solicitar AdSense.
+4. Solicita AdSense cuando haya suficiente contenido original.
+5. Antes de activar anuncios: añade `public/ads.txt` con el ID de editor, integra una CMP certificada y coloca el código de AdSense solo después del consentimiento.
 
 ## MCP configurados
 

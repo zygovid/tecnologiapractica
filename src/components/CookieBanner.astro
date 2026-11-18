@@ -3,13 +3,20 @@
 // Bloquea analytics y anuncios hasta que el usuario acepta.
 ---
 
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Aviso de cookies" hidden>
+<div
+  id="cookie-banner"
+  class="cookie-banner"
+  role="dialog"
+  aria-labelledby="cookie-banner-title"
+  aria-modal="false"
+  hidden
+>
   <div class="cookie-box">
-    <h2>Tu privacidad importa</h2>
+    <h2 id="cookie-banner-title">Tu privacidad importa</h2>
     <p>
       Usamos cookies técnicas para que la web funcione y, con tu permiso, cookies de
       analítica y publicidad (Google AdSense). Puedes aceptarlas todas o continuar
-      solo con las necesarias.
+      solo con las necesarias. Puedes cambiar tu elección cuando quieras.
     </p>
     <div class="cookie-actions">
       <button id="cookie-accept" type="button">Aceptar todas</button>
@@ -37,23 +44,57 @@
     });
   }
 
-  const saved = localStorage.getItem(KEY);
-  if (saved === null) {
+  function readConsent() {
+    try {
+      return localStorage.getItem(KEY);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function saveConsent(value) {
+    try {
+      localStorage.setItem(KEY, value);
+    } catch (error) {}
+  }
+
+  function showBanner() {
+    if (!banner) return;
     banner.hidden = false;
+    accept?.focus();
+  }
+
+  function hideBanner() {
+    if (banner) banner.hidden = true;
+  }
+
+  const saved = readConsent();
+  if (saved === null) {
+    showBanner();
   } else {
     applyConsent(saved === 'all');
   }
 
-  accept.addEventListener('click', () => {
-    localStorage.setItem(KEY, 'all');
+  accept?.addEventListener('click', () => {
+    saveConsent('all');
     applyConsent(true);
-    banner.hidden = true;
+    hideBanner();
   });
 
-  reject.addEventListener('click', () => {
-    localStorage.setItem(KEY, 'necessary');
+  reject?.addEventListener('click', () => {
+    saveConsent('necessary');
     applyConsent(false);
-    banner.hidden = true;
+    hideBanner();
+  });
+
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof Element
+      ? event.target.closest('[data-cookie-settings]')
+      : null;
+
+    if (!target) return;
+    event.preventDefault();
+    showBanner();
   });
 </script>
 

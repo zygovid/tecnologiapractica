@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { legalInfo } from '../lib/legal';
+---
+
+<BaseLayout
+  title="Contacto"
+  description="Contacta con Tecnología Práctica para dudas, correcciones o propuestas de contenido."
+>
+  <h1>Contacto</h1>
+  <p class="lead">
+    ¿Tienes una duda sobre algún artículo, has encontrado un error o quieres proponer un
+    tema? Escríbeme y lo revisaré.
+  </p>
+
+  <div class="card">
+    <h2>Correo electrónico</h2>
+    <p>
+      <a href={`mailto:${legalInfo.email}`}>{legalInfo.email}</a>
+    </p>
+    <p>
+      Es la vía más directa. No uses este correo para soporte urgente ni para enviar
+      datos sensibles.
+    </p>
+  </div>
+
+  <h2>Qué incluir</h2>
+  <ul>
+    <li>El artículo o página a la que te refieres.</li>
+    <li>Una descripción breve de la duda o del error.</li>
+    <li>Si es una corrección, la fuente o el dato que permites verificar.</li>
+  </ul>
+
+  <h2>Servicios técnicos</h2>
+  <p>
+    Si buscas documentación, revisión de automatizaciones o soporte para un proyecto,
+    consulta la página de <a href="/servicios/">servicios</a> y escribe indicando el
+    alcance y el plazo aproximado.
+  </p>
+
+  <h2>Privacidad</h2>
+  <p>
+    Los datos que envíes por correo se tratarán solo para responder a tu consulta. Puedes
+    consultar los detalles en la <a href="/privacidad/">política de privacidad</a>.
+  </p>
+
+  <p><a href="/">Volver al inicio</a></p>
+</BaseLayout>

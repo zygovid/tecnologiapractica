@@ -41,8 +41,7 @@ const coverUrl = cover ? new URL(cover.src, site).href : undefined;
 const fmt = (d: Date) =>
   d.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
 
-const jsonLd: Record<string, unknown> = {
-  '@context': 'https://schema.org',
+const blogPosting = {
   '@type': 'BlogPosting',
   headline: title,
   description,
@@ -54,6 +53,35 @@ const jsonLd: Record<string, unknown> = {
   publisher: { '@type': 'Organization', name: 'Tecnología Práctica' },
   mainEntityOfPage: canonical,
   ...(coverUrl ? { image: coverUrl } : {}),
+};
+
+const breadcrumbList = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: new URL('/', site).href,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: section.label,
+      item: new URL(section.basePath, site).href,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: title,
+      item: canonical,
+    },
+  ],
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [blogPosting, breadcrumbList],
 };
 ---
 

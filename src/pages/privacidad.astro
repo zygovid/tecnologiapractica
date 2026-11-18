@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { legalInfo, hasLegalIdentity } from '../lib/legal';
 ---
 
 <BaseLayout
@@ -7,48 +8,155 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Política de privacidad de Tecnología Práctica."
 >
   <h1>Política de privacidad</h1>
+  <p class="meta">Última actualización: 18 de noviembre de 2026</p>
 
   <h2>Responsable del tratamiento</h2>
+  {hasLegalIdentity ? (
+    <p>
+      El responsable del tratamiento es <strong>{legalInfo.name}</strong>, con NIF/CIF
+      <strong>{legalInfo.nif}</strong> y domicilio en {legalInfo.address}. Puedes
+      contactar por correo electrónico en
+      <a href={`mailto:${legalInfo.email}`}>{legalInfo.email}</a>.
+    </p>
+  ) : (
+    <p>
+      El titular de Tecnología Práctica es el responsable de los datos personales que
+      se recogen a través de este sitio. Correo de contacto:
+      <a href={`mailto:${legalInfo.email}`}>{legalInfo.email}</a>.
+    </p>
+  )}
+
+  <h2>Datos que tratamos</h2>
+  <ul>
+    <li>
+      Datos técnicos de navegación y registros de seguridad generados al acceder al
+      sitio, como dirección IP, fecha y hora, navegador y páginas solicitadas.
+    </li>
+    <li>
+      Datos de analítica web de Google Analytics 4, como páginas visitadas, eventos,
+      dispositivo, navegador y ubicación aproximada, solo si aceptas las cookies de
+      analítica.
+    </li>
+    <li>
+      Datos relacionados con la visualización de anuncios de Google AdSense, solo si
+      AdSense está activo y aceptas las cookies publicitarias.
+    </li>
+    <li>
+      Los datos que nos envíes voluntariamente por correo electrónico, como tu nombre,
+      dirección de correo y el contenido de tu consulta.
+    </li>
+  </ul>
   <p>
-    El titular de Tecnología Práctica es el responsable de los datos personales que
-    se recogen a través de este sitio. Correo de contacto:
-    <a href="mailto:hola@tecnologiapractica.com">hola@tecnologiapractica.com</a>.
+    No solicitamos datos especialmente protegidos. Si nos los envías por correo, lo
+    haces bajo tu responsabilidad.
   </p>
 
-  <h2>Datos que recogemos</h2>
-  <ul>
-    <li>Datos técnicos de navegación recogidos por Google Analytics 4, previo consentimiento.</li>
-    <li>Información relacionada con la visualización de anuncios de Google AdSense, previo consentimiento.</li>
-    <li>Los datos que tú nos envíes voluntariamente por correo electrónico.</li>
-  </ul>
+  <h2>Finalidades y bases jurídicas</h2>
+  <table>
+    <thead>
+      <tr><th>Finalidad</th><th>Base jurídica</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Mostrar el sitio, mantener su seguridad y prevenir abusos.</td>
+        <td>Interés legítimo en el funcionamiento y la seguridad del sitio.</td>
+      </tr>
+      <tr>
+        <td>Medir el tráfico y mejorar el contenido mediante Google Analytics 4.</td>
+        <td>Tu consentimiento.</td>
+      </tr>
+      <tr>
+        <td>Mostrar y medir anuncios mediante Google AdSense, cuando esté activo.</td>
+        <td>Tu consentimiento.</td>
+      </tr>
+      <tr>
+        <td>Responder a consultas enviadas por correo electrónico.</td>
+        <td>
+          Tu consentimiento al contactar y, en su caso, interés legítimo en atender la
+          comunicación.
+        </td>
+      </tr>
+      <tr>
+        <td>Cumplir obligaciones legales aplicables.</td>
+        <td>Obligación legal.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <h2>Finalidad y base legal</h2>
+  <h2>Destinatarios y encargados</h2>
   <p>
-    Los datos se utilizan para medir el tráfico del sitio, mostrar publicidad
-    contextual y responder a tus consultas. La base legal es tu consentimiento para
-    las cookies de analítica y publicidad, y el interés legítimo en atender las
-    comunicaciones que nos envíes.
+    Los datos pueden ser tratados por proveedores que prestan servicios necesarios para
+    el sitio:
+  </p>
+  <ul>
+    <li>
+      <strong>Cloudflare</strong>, para alojamiento, red de distribución, DNS y
+      enrutamiento de correo.
+    </li>
+    <li>
+      <strong>Google</strong>, para Google Analytics 4, Google AdSense cuando esté
+      activo y el correo de destino del reenvío.
+    </li>
+    <li>
+      <strong>Proveedor de correo del destinatario</strong>, para recibir los mensajes
+      enviados a la dirección de contacto.
+    </li>
+  </ul>
+  <p>
+    No vendemos datos personales. Solo comunicaremos datos a terceros cuando exista una
+    obligación legal o sea necesario para atender un requerimiento válido.
+  </p>
+
+  <h2>Transferencias internacionales</h2>
+  <p>
+    Algunos proveedores, especialmente Google y Cloudflare, pueden tratar datos fuera
+    del Espacio Económico Europeo. Cuando ocurra, se aplicarán las garantías previstas
+    en la normativa de protección de datos, como decisiones de adecuación o cláusulas
+    contractuales tipo. Puedes solicitar más información escribiendo a
+    <a href={`mailto:${legalInfo.email}`}>{legalInfo.email}</a>.
   </p>
 
   <h2>Conservación</h2>
   <p>
-    Los datos de analítica se conservan según la configuración de Google Analytics 4.
-    Los correos se conservan solo durante el tiempo necesario para resolver la consulta.
+    Los registros técnicos y de seguridad se conservan durante el tiempo necesario para
+    mantener el servicio y atender posibles responsabilidades. Los datos de analítica se
+    conservan según el periodo configurado en Google Analytics 4. Los correos se
+    conservan solo durante el tiempo necesario para resolver la consulta, salvo que
+    exista una obligación legal de conservarlos.
   </p>
 
   <h2>Derechos</h2>
   <p>
     Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición,
     limitación y portabilidad escribiendo a
-    <a href="mailto:hola@tecnologiapractica.com">hola@tecnologiapractica.com</a>.
-    También puedes presentar una reclamación ante la autoridad de protección de datos
-    competente.
+    <a href={`mailto:${legalInfo.email}`}>{legalInfo.email}</a>. También puedes retirar
+    tu consentimiento en cualquier momento desde la
+    <a href="/cookies/">política de cookies</a>, sin que ello afecte a la licitud del
+    tratamiento previo.
+  </p>
+  <p>
+    Si consideras que no hemos atendido correctamente tus derechos, puedes presentar una
+    reclamación ante la Agencia Española de Protección de Datos:
+    <a href="https://www.aepd.es" rel="noopener" target="_blank">www.aepd.es</a>.
+  </p>
+
+  <h2>Cookies</h2>
+  <p>
+    El uso de cookies y tecnologías similares se explica en la
+    <a href="/cookies/">política de cookies</a>. Puedes aceptar, rechazar o cambiar tu
+    elección en cualquier momento.
+  </p>
+
+  <h2>Decisiones automatizadas</h2>
+  <p>
+    No se toman decisiones automatizadas con efectos jurídicos sobre ti ni se elaboran
+    perfiles con esos fines.
   </p>
 
   <h2>Cambios</h2>
   <p>
-    Esta política puede actualizarse para reflejar cambios legales o técnicos.
-    La fecha de la última actualización es 17 de noviembre de 2026.
+    Esta política puede actualizarse para reflejar cambios legales o técnicos. La fecha
+    de la última actualización aparece al inicio de esta página.
   </p>
 
   <p><a href="/">Volver al inicio</a></p>

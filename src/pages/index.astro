@@ -14,11 +14,26 @@ const grouped = visibleSectionIds.map((id) => ({
     .filter((post) => post.data.section === id)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
 }));
+
+const siteUrl = Astro.site ?? new URL('https://tecnologiapractica.com');
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Tecnología Práctica',
+  url: new URL('/', siteUrl).href,
+  inLanguage: 'es-ES',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Tecnología Práctica',
+    url: new URL('/', siteUrl).href,
+  },
+};
 ---
 
 <BaseLayout
   title="Tecnología Práctica"
   description="Electrónica básica explicada de forma clara y práctica: componentes, herramientas y circuitos para empezar desde cero."
+  jsonLd={jsonLd}
 >
   <section class="hero">
     <p class="tag">Electrónica desde cero</p>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada"
+  description="La página que buscas no existe o ha cambiado de dirección."
+  noindex={true}
+>
+  <section class="page-hero">
+    <p class="eyebrow">404</p>
+    <h1>Esta página no existe</h1>
+    <p class="lead">
+      Puede que el enlace esté mal escrito o que la página haya cambiado de dirección.
+      Desde aquí puedes volver al inicio o seguir con las guías de electrónica básica.
+    </p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="/electronica-basica/">Ver electrónica básica</a>
+      <a class="button button-secondary" href="/">Ir al inicio</a>
+    </div>
+  </section>
+</BaseLayout>
