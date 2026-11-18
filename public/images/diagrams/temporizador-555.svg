@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Circuito monoestable con 555, resistencia, condensador y LED">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Temporizador con 555</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">T = 1,1 × R × C. Cada pulsación genera un pulso.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+  <rect x="60" y="130" width="470" height="380" rx="16" fill="#1c2230" stroke="#f0a500" stroke-width="2"/>
+  <text x="88" y="170" font-size="21" font-weight="700" fill="#f0a500">Patillas del 555</text>
+  <line x1="88" y1="186" x2="502" y2="186" stroke="#30363d" stroke-width="2"/>
+    <rect x="170" y="190" width="250" height="270" rx="12" fill="#0d1117" stroke="#f0a500" stroke-width="3"/>
+    <path d="M295 175 A18 18 0 0 0 295 205" fill="none" stroke="#9da7b3" stroke-width="5"/>
+    <text x="295" y="245" text-anchor="middle" font-size="34" font-weight="700" fill="#f0a500">555</text>
+    <text x="150" y="240" text-anchor="end" font-size="17" fill="#e6edf3">1 GND</text>
+    <text x="150" y="280" text-anchor="end" font-size="17" fill="#e6edf3">2 TRIG</text>
+    <text x="150" y="320" text-anchor="end" font-size="17" fill="#e6edf3">3 OUT</text>
+    <text x="150" y="360" text-anchor="end" font-size="17" fill="#e6edf3">4 RESET</text>
+    <text x="440" y="240" font-size="17" fill="#e6edf3">8 VCC</text>
+    <text x="440" y="280" font-size="17" fill="#e6edf3">7 DIS</text>
+    <text x="440" y="320" font-size="17" fill="#e6edf3">6 THR</text>
+    <text x="440" y="360" font-size="17" fill="#e6edf3">5 CONT</text>
+    <text x="295" y="430" text-anchor="middle" font-size="17" fill="#9da7b3">muesca hacia arriba</text>
+    
+  <rect x="570" y="130" width="570" height="380" rx="16" fill="#1c2230" stroke="#58a6ff" stroke-width="2"/>
+  <text x="598" y="170" font-size="21" font-weight="700" fill="#58a6ff">Monoestable</text>
+  <line x1="598" y1="186" x2="1112" y2="186" stroke="#30363d" stroke-width="2"/>
+    <line x1="610" y1="210" x2="1100" y2="210" stroke="#ff7b54" stroke-width="5"/>
+    <text x="610" y="195" font-size="18" fill="#ff7b54">+9 V</text>
+    <rect x="720" y="235" width="120" height="55" rx="7" fill="#1c2230" stroke="#ffcc4d" stroke-width="4"/>
+    <text x="780" y="270" text-anchor="middle" font-size="18" fill="#e6edf3">470 kΩ</text>
+    <line x1="780" y1="210" x2="780" y2="235" stroke="#58a6ff" stroke-width="5"/>
+    <line x1="780" y1="290" x2="780" y2="340" stroke="#58a6ff" stroke-width="5"/>
+    <rect x="730" y="340" width="100" height="40" rx="5" fill="#1c2230" stroke="#58a6ff" stroke-width="4"/>
+    <text x="780" y="368" text-anchor="middle" font-size="17" fill="#58a6ff">22 µF</text>
+    <line x1="780" y1="380" x2="780" y2="410" stroke="#9da7b3" stroke-width="5"/>
+    <text x="610" y="445" font-size="20" fill="#7ee787">T = 1,1 × 470 kΩ × 22 µF ≈ 11 s</text>
+    <text x="610" y="482" font-size="18" fill="#9da7b3">Pulsador en TRIG · LED en OUT</text>
+  </g>
+</svg>

@@ -92,6 +92,94 @@ const posts = (await getCollection('blog', ({ data }) =>
     </ol>
   </section>
 
+  <section class="learning-path" aria-labelledby="siguiente-nivel">
+    <p class="eyebrow">Siguiente nivel</p>
+    <h2 id="siguiente-nivel">Componentes, alimentación y esquemas</h2>
+    <p class="lead">Cuando ya montas un LED y un pulsador, toca entender qué hay detrás de cada bloque.</p>
+    <ol class="path-list">
+      <li>
+        <span class="path-list__num">10</span>
+        <div>
+          <a href="/electronica-basica/23-diodos-polaridad-comprobacion/">Entiende el diodo</a>
+          <p>Polaridad, caída directa y protección de bobinas.</p>
+        </div>
+      </li>
+      <li>
+        <span class="path-list__num">11</span>
+        <div>
+          <a href="/electronica-basica/24-transistor-como-interruptor/">Usa un transistor</a>
+          <p>Controla cargas mayores con una señal pequeña.</p>
+        </div>
+      </li>
+      <li>
+        <span class="path-list__num">12</span>
+        <div>
+          <a href="/electronica-basica/25-divisor-tension-potenciometros/">Calcula un divisor</a>
+          <p>Adapta tensiones y ajusta sensores con un potenciómetro.</p>
+        </div>
+      </li>
+      <li>
+        <span class="path-list__num">13</span>
+        <div>
+          <a href="/electronica-basica/26-alimentar-protoboard/">Alimenta la protoboard</a>
+          <p>5 V, 3,3 V, pilas y masa común sin cortocircuitos.</p>
+        </div>
+      </li>
+      <li>
+        <span class="path-list__num">14</span>
+        <div>
+          <a href="/electronica-basica/27-reles-y-optoacopladores/">Controla con relé</a>
+          <p>Conmuta cargas con transistor, flyback y aislamiento.</p>
+        </div>
+      </li>
+      <li>
+        <span class="path-list__num">15</span>
+        <div>
+          <a href="/electronica-basica/28-leer-esquema-electrico/">Lee un esquema</a>
+          <p>Símbolos, referencias, nudos y contactos NO/NC.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="projects" aria-labelledby="proyectos-practicos">
+    <p class="eyebrow">Proyectos prácticos</p>
+    <h2 id="proyectos-practicos">Montajes para aplicar lo aprendido</h2>
+    <p class="lead">Cada proyecto incluye lista de materiales, esquema, montaje, pruebas y errores frecuentes.</p>
+    <div class="project-grid">
+      <a class="project-card" href="/electronica-basica/29-luz-nocturna-ldr-rele/">
+        <span>Proyecto 01</span>
+        <h3>Luz nocturna con LDR y relé</h3>
+        <p>Enciende una tira LED de 12 V al oscurecer.</p>
+      </a>
+      <a class="project-card" href="/electronica-basica/30-temporizador-555/">
+        <span>Proyecto 02</span>
+        <h3>Temporizador con 555</h3>
+        <p>Un pulso de duración fija para luces y avisos.</p>
+      </a>
+      <a class="project-card" href="/electronica-basica/31-sensor-temperatura-comparador/">
+        <span>Proyecto 03</span>
+        <h3>Sensor de temperatura</h3>
+        <p>Termostato básico con NTC, comparador y relé.</p>
+      </a>
+      <a class="project-card" href="/electronica-basica/32-control-motor-dc-l298n/">
+        <span>Proyecto 04</span>
+        <h3>Motor DC con L298N</h3>
+        <p>Sentido y velocidad con un puente H.</p>
+      </a>
+      <a class="project-card" href="/electronica-basica/33-semaforo-leds-temporizador/">
+        <span>Proyecto 05</span>
+        <h3>Semáforo con LEDs</h3>
+        <p>Secuencia rojo, verde y amarillo con 555 y 4017.</p>
+      </a>
+      <a class="project-card" href="/electronica-basica/34-alarma-pulsador-zumbador/">
+        <span>Proyecto 06</span>
+        <h3>Alarma con pulsador</h3>
+        <p>Zumbador temporizado para puertas y avisos.</p>
+      </a>
+    </div>
+  </section>
+
   {posts.length > 0 ? (
     <div class="post-grid">
       {posts.map((post, index) => <PostCard post={post} featured={index === 0} />)}
@@ -109,8 +197,15 @@ const posts = (await getCollection('blog', ({ data }) =>
   .path-list__num { color: var(--accent); font-size: 0.8rem; font-weight: 800; font-variant-numeric: tabular-nums; padding-top: 0.15rem; }
   .path-list a { font-weight: 700; }
   .path-list p { color: var(--muted); font-size: 0.88rem; margin: 0.3rem 0 0; }
+  .projects { margin: 0 0 2.5rem; }
+  .projects h2 { margin-top: 0; }
+  .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; margin-top: 1.5rem; }
+  .project-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem; text-decoration: none; }
+  .project-card span { color: var(--accent); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .project-card h3 { font-size: 1.05rem; margin: 0.45rem 0 0.35rem; }
+  .project-card p { color: var(--muted); font-size: 0.88rem; margin: 0; }
 
   @media (max-width: 820px) {
-    .path-list { grid-template-columns: 1fr; }
+    .path-list, .project-grid { grid-template-columns: 1fr; }
   }
 </style>

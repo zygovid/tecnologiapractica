@@ -8,7 +8,7 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 - Repo público: https://github.com/zygovid/tecnologiapractica
 - Cloudflare Pages: proyecto `tecnologiapractica` (Direct Upload), dominio principal activo.
 - `www` redirige con 301 al dominio principal.
-- Silo visible: **Electrónica básica** con 12 guías para principiantes y una ruta de aprendizaje.
+- Silo visible: **Electrónica básica** con 24 guías para principiantes, una ruta de aprendizaje y 6 proyectos prácticos.
 - Los 10 artículos anteriores de automatización están como `draft: true` y fuera del sitemap; sus plantillas se conservan en `src/_archived/`.
 - Las rutas antiguas `/automatizacion/*` redirigen a una página `noindex` mediante `public/_redirects`.
 - Auto-deploy con GitHub Actions (`.github/workflows/deploy.yml`). Cloudflare Pages sigue siendo un proyecto Direct Upload; el workflow compila y despliega con Wrangler.
@@ -21,7 +21,7 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 
 ```
 src/
-  content/blog/           → artículos Markdown (12 visibles + 10 borradores)
+  content/blog/           → artículos Markdown (24 visibles + 10 borradores)
   content.config.ts       → esquema con section, cover, coverAlt y draft
   lib/
     legal.ts              → datos del titular usados en las páginas legales
@@ -82,7 +82,7 @@ npm run preview  # ver el build localmente
 
 ## Revisión de artículos
 
-Los 12 artículos visibles están pensados para principiantes:
+Los 24 artículos visibles están pensados para principiantes:
 
 - `11-multimetro-digital.md`
 - `12-codigo-colores-resistencias.md`
@@ -96,6 +96,18 @@ Los 12 artículos visibles están pensados para principiantes:
 - `20-medir-corriente-multimetro.md`
 - `21-condensadores.md`
 - `22-pulsadores-pull-up-pull-down.md`
+- `23-diodos-polaridad-comprobacion.md`
+- `24-transistor-como-interruptor.md`
+- `25-divisor-tension-potenciometros.md`
+- `26-alimentar-protoboard.md`
+- `27-reles-y-optoacopladores.md`
+- `28-leer-esquema-electrico.md`
+- `29-luz-nocturna-ldr-rele.md`
+- `30-temporizador-555.md`
+- `31-sensor-temperatura-comparador.md`
+- `32-control-motor-dc-l298n.md`
+- `33-semaforo-leds-temporizador.md`
+- `34-alarma-pulsador-zumbador.md`
 
 Los 10 artículos de automatización siguen en `src/content/blog/` como borradores (`draft: true`). No se muestran ni entran en el sitemap. Para volver a publicarlos, cambia `draft` a `false`, devuelve las plantillas desde `src/_archived/automatizacion/` a `src/pages/automatizacion/` y añade `automatizacion` a `visibleSectionIds` en `src/lib/sections.ts`.
 

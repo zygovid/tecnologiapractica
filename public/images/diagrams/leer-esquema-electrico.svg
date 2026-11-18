@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Leyenda de símbolos eléctricos y ejemplo de lectura de un esquema">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Leer un esquema eléctrico</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">Las líneas son conexiones. Un punto relleno indica unión.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+  <rect x="60" y="130" width="430" height="380" rx="16" fill="#1c2230" stroke="#58a6ff" stroke-width="2"/>
+  <text x="88" y="170" font-size="21" font-weight="700" fill="#58a6ff">Símbolos básicos</text>
+  <line x1="88" y1="186" x2="462" y2="186" stroke="#30363d" stroke-width="2"/>
+    <line x1="110" y1="230" x2="160" y2="230" stroke="#58a6ff" stroke-width="4"/>
+    <rect x="160" y="210" width="70" height="40" fill="none" stroke="#ffcc4d" stroke-width="4"/>
+    <line x1="230" y1="230" x2="280" y2="230" stroke="#58a6ff" stroke-width="4"/>
+    <text x="300" y="236" font-size="18" fill="#e6edf3">resistencia</text>
+    <line x1="110" y1="300" x2="175" y2="300" stroke="#58a6ff" stroke-width="4"/>
+    <line x1="175" y1="275" x2="175" y2="325" stroke="#e6edf3" stroke-width="4"/>
+    <line x1="195" y1="275" x2="195" y2="325" stroke="#e6edf3" stroke-width="4"/>
+    <line x1="195" y1="300" x2="280" y2="300" stroke="#58a6ff" stroke-width="4"/>
+    <text x="300" y="306" font-size="18" fill="#e6edf3">condensador</text>
+    <line x1="110" y1="370" x2="160" y2="370" stroke="#58a6ff" stroke-width="4"/>
+    <path d="M160 345 L160 395 L210 370 Z" fill="none" stroke="#ffcc4d" stroke-width="4"/>
+    <line x1="210" y1="345" x2="210" y2="395" stroke="#e6edf3" stroke-width="4"/>
+    <line x1="210" y1="370" x2="280" y2="370" stroke="#58a6ff" stroke-width="4"/>
+    <text x="300" y="376" font-size="18" fill="#e6edf3">diodo</text>
+    <line x1="110" y1="440" x2="160" y2="440" stroke="#58a6ff" stroke-width="4"/>
+    <line x1="160" y1="415" x2="160" y2="465" stroke="#e6edf3" stroke-width="4"/>
+    <line x1="160" y1="440" x2="210" y2="440" stroke="#58a6ff" stroke-width="4"/>
+    <line x1="210" y1="420" x2="210" y2="460" stroke="#9da7b3" stroke-width="4"/>
+    <line x1="210" y1="440" x2="280" y2="440" stroke="#58a6ff" stroke-width="4"/>
+    <text x="300" y="446" font-size="18" fill="#e6edf3">pulsador NO</text>
+    
+  <rect x="530" y="130" width="610" height="380" rx="16" fill="#1c2230" stroke="#7ee787" stroke-width="2"/>
+  <text x="558" y="170" font-size="21" font-weight="700" fill="#7ee787">Ejemplo: LED con pulsador</text>
+  <line x1="558" y1="186" x2="1112" y2="186" stroke="#30363d" stroke-width="2"/>
+    <line x1="580" y1="210" x2="1080" y2="210" stroke="#ff7b54" stroke-width="5"/>
+    <text x="580" y="195" font-size="18" fill="#ff7b54">+5 V</text>
+    <line x1="690" y1="210" x2="690" y2="250" stroke="#58a6ff" stroke-width="5"/>
+    <line x1="690" y1="250" x2="740" y2="250" stroke="#58a6ff" stroke-width="5"/>
+    <line x1="740" y1="250" x2="790" y2="220" stroke="#e6edf3" stroke-width="4"/>
+    <circle cx="740" cy="250" r="5" fill="#58a6ff"/>
+    <circle cx="790" cy="220" r="5" fill="#58a6ff"/>
+    <text x="700" y="290" font-size="17" fill="#9da7b3">SW1</text>
+    <line x1="790" y1="220" x2="830" y2="220" stroke="#58a6ff" stroke-width="5"/>
+    <rect x="830" y="200" width="80" height="40" fill="none" stroke="#ffcc4d" stroke-width="4"/>
+    <text x="870" y="195" text-anchor="middle" font-size="17" fill="#ffcc4d">R1</text>
+    <line x1="910" y1="220" x2="970" y2="220" stroke="#58a6ff" stroke-width="5"/>
+    <path d="M970 190 L970 250 L1020 220 Z" fill="none" stroke="#7ee787" stroke-width="4"/>
+    <line x1="1020" y1="190" x2="1020" y2="250" stroke="#e6edf3" stroke-width="4"/>
+    <text x="1000" y="190" text-anchor="middle" font-size="17" fill="#7ee787">D1</text>
+    <line x1="1020" y1="220" x2="1080" y2="220" stroke="#58a6ff" stroke-width="5"/>
+    <line x1="1080" y1="220" x2="1080" y2="340" stroke="#58a6ff" stroke-width="5"/>
+    <line x1="1080" y1="340" x2="580" y2="340" stroke="#58a6ff" stroke-width="5"/>
+    <text x="580" y="365" font-size="18" fill="#9da7b3">GND</text>
+    <text x="580" y="410" font-size="18" fill="#e6edf3">R1 y D1 están en serie.</text>
+    <text x="580" y="445" font-size="18" fill="#9da7b3">Al cerrar SW1, circula corriente.</text>
+  </g>
+</svg>

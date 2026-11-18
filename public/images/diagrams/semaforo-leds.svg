@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Semáforo con 555, CD4017 y tres LEDs">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Semáforo con LEDs y temporizador</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">El 555 genera el reloj; el CD4017 activa una salida detrás de otra.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+  <rect x="60" y="160" width="220" height="120" rx="16" fill="#1c2230" stroke="#f0a500" stroke-width="2"/>
+  <text x="88" y="200" font-size="21" font-weight="700" fill="#f0a500">555 astable</text>
+  <line x1="88" y1="216" x2="252" y2="216" stroke="#30363d" stroke-width="2"/>
+    <text x="170" y="250" text-anchor="middle" font-size="18" fill="#9da7b3">reloj ≈ 1 Hz</text>
+    
+  <rect x="330" y="160" width="220" height="120" rx="16" fill="#1c2230" stroke="#58a6ff" stroke-width="2"/>
+  <text x="358" y="200" font-size="21" font-weight="700" fill="#58a6ff">CD4017</text>
+  <line x1="358" y1="216" x2="522" y2="216" stroke="#30363d" stroke-width="2"/>
+    <text x="440" y="250" text-anchor="middle" font-size="18" fill="#9da7b3">contador decimal</text>
+    <line x1="280" y1="220" x2="330" y2="220" stroke="#58a6ff" stroke-width="4" marker-end="url(#arrow)"/>
+    <line x1="550" y1="220" x2="610" y2="220" stroke="#58a6ff" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="610" y="180" width="120" height="80" rx="10" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+    <text x="670" y="215" text-anchor="middle" font-size="18" fill="#e6edf3">Q0</text>
+    <text x="670" y="243" text-anchor="middle" font-size="16" fill="#9da7b3">rojo</text>
+    <rect x="770" y="180" width="120" height="80" rx="10" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+    <text x="830" y="215" text-anchor="middle" font-size="18" fill="#e6edf3">Q1</text>
+    <text x="830" y="243" text-anchor="middle" font-size="16" fill="#9da7b3">verde</text>
+    <rect x="930" y="180" width="120" height="80" rx="10" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+    <text x="990" y="215" text-anchor="middle" font-size="18" fill="#e6edf3">Q2</text>
+    <text x="990" y="243" text-anchor="middle" font-size="16" fill="#9da7b3">amarillo</text>
+    <line x1="670" y1="260" x2="670" y2="300" stroke="#ff7b54" stroke-width="4"/>
+    <line x1="830" y1="260" x2="830" y2="300" stroke="#7ee787" stroke-width="4"/>
+    <line x1="990" y1="260" x2="990" y2="300" stroke="#ffcc4d" stroke-width="4"/>
+    <circle cx="670" cy="325" r="18" fill="#ff7b54"/>
+    <circle cx="830" cy="325" r="18" fill="#7ee787"/>
+    <circle cx="990" cy="325" r="18" fill="#ffcc4d"/>
+    <text x="670" y="365" text-anchor="middle" font-size="17" fill="#9da7b3">330 Ω</text>
+    <text x="830" y="365" text-anchor="middle" font-size="17" fill="#9da7b3">330 Ω</text>
+    <text x="990" y="365" text-anchor="middle" font-size="17" fill="#9da7b3">330 Ω</text>
+    <text x="60" y="430" font-size="19" fill="#e6edf3">Secuencia: rojo → verde → amarillo → repetir.</text>
+    <text x="60" y="465" font-size="19" fill="#9da7b3">Q3 va a RESET para reiniciar el contador.</text>
+  </g>
+</svg>

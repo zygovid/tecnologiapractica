@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Divisor de tensión con dos resistencias y potenciómetro">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Divisor de tensión y potenciómetro</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">Vout = Vin × R2 / (R1 + R2). La carga cambia el resultado.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+  <rect x="60" y="130" width="470" height="380" rx="16" fill="#1c2230" stroke="#58a6ff" stroke-width="2"/>
+  <text x="88" y="170" font-size="21" font-weight="700" fill="#58a6ff">Divisor con dos resistencias</text>
+  <line x1="88" y1="186" x2="502" y2="186" stroke="#30363d" stroke-width="2"/>
+    <line x1="230" y1="210" x2="230" y2="260" stroke="#ff7b54" stroke-width="6"/>
+    <text x="250" y="240" font-size="20" fill="#ff7b54">Vin</text>
+    <rect x="185" y="260" width="90" height="60" rx="6" fill="#1c2230" stroke="#ffcc4d" stroke-width="4"/>
+    <text x="230" y="298" text-anchor="middle" font-size="20" fill="#e6edf3">R1</text>
+    <line x1="230" y1="320" x2="230" y2="360" stroke="#58a6ff" stroke-width="6"/>
+    <circle cx="230" cy="360" r="7" fill="#58a6ff"/>
+    <line x1="230" y1="360" x2="410" y2="360" stroke="#7ee787" stroke-width="5"/>
+    <text x="330" y="350" text-anchor="middle" font-size="20" fill="#7ee787">Vout</text>
+    <rect x="185" y="380" width="90" height="60" rx="6" fill="#1c2230" stroke="#ffcc4d" stroke-width="4"/>
+    <text x="230" y="418" text-anchor="middle" font-size="20" fill="#e6edf3">R2</text>
+    <line x1="230" y1="440" x2="230" y2="480" stroke="#9da7b3" stroke-width="6"/>
+    <text x="250" y="490" font-size="20" fill="#9da7b3">GND</text>
+    <text x="95" y="455" font-size="18" fill="#9da7b3">R2 es la resistencia entre Vout y GND.</text>
+    
+  <rect x="570" y="130" width="570" height="380" rx="16" fill="#1c2230" stroke="#7ee787" stroke-width="2"/>
+  <text x="598" y="170" font-size="21" font-weight="700" fill="#7ee787">Potenciómetro lineal</text>
+  <line x1="598" y1="186" x2="1112" y2="186" stroke="#30363d" stroke-width="2"/>
+    <rect x="690" y="235" width="300" height="70" rx="10" fill="#1c2230" stroke="#7ee787" stroke-width="4"/>
+    <line x1="660" y1="270" x2="690" y2="270" stroke="#ff7b54" stroke-width="5"/>
+    <line x1="990" y1="270" x2="1020" y2="270" stroke="#9da7b3" stroke-width="5"/>
+    <path d="M840 185 L840 230" stroke="#58a6ff" stroke-width="5" marker-end="url(#arrow)"/>
+    <text x="840" y="175" text-anchor="middle" font-size="18" fill="#58a6ff">cursor</text>
+    <text x="660" y="245" font-size="18" fill="#ff7b54">Vin</text>
+    <text x="1020" y="300" font-size="18" fill="#9da7b3">GND</text>
+    <text x="600" y="360" font-size="19" fill="#e6edf3">Extremos a Vin y GND</text>
+    <text x="600" y="395" font-size="19" fill="#e6edf3">Salida por el cursor</text>
+    <text x="600" y="430" font-size="18" fill="#ffcc4d">10 kΩ lineal para ajustes</text>
+    <text x="600" y="466" font-size="18" fill="#ff7b54">No es una fuente de alimentación</text>
+  </g>
+</svg>
