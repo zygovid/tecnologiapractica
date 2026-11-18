@@ -1,7 +1,7 @@
 ---
 title: "Diodo, condensador y transistor: cómo comprobarlos con un multímetro"
 description: "Aprende a identificar diodos, condensadores y transistores básicos y a comprobarlos con un multímetro sin experiencia previa."
-pubDate: 2026-12-01
+pubDate: 2026-11-07
 category: "Componentes"
 tags: ["diodos", "condensadores", "transistores", "multímetro"]
 section: "electronica-basica"
@@ -99,3 +99,9 @@ Si la placa funciona mal pero todo marca correcto, no culpes al componente todav
 Con el circuito apagado y los condensadores descargados, el **modo diodo** te dice si una unión conduce en un sentido y bloquea en el otro: **0,6 V y OL** es la señal sana de un diodo de silicio. El **modo resistencia** te muestra cómo la lectura de un condensador **sube** mientras se carga. Y un **transistor NPN** se comporta como dos diodos unidos por la base.
 
 Empieza por componentes sueltos sobre la mesa, sin soldar. Cuando domines esas tres pruebas, pasar a medir dentro de una placa será mucho más fácil.
+
+## Sigue con
+
+- [Condensadores: tipos y códigos](/electronica-basica/21-condensadores/) para interpretar el valor y la polaridad.
+- [Cómo medir corriente con el multímetro](/electronica-basica/20-medir-corriente-multimetro/) para completar las medidas básicas.
+- [Cómo usar un multímetro digital](/electronica-basica/11-multimetro-digital/) para repasar tensión, continuidad y resistencia.

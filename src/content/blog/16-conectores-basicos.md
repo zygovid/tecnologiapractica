@@ -1,7 +1,7 @@
 ---
 title: "Cables y conectores básicos para proyectos: Dupont, JST, clemas y terminales"
 description: "Compara los conectores más usados en proyectos de electrónica y aprende a elegir el correcto según cableado, corriente y resistencia."
-pubDate: 2026-12-02
+pubDate: 2026-11-08
 category: "Montaje"
 tags: ["conectores", "cables", "dupont", "jst", "electrónica"]
 section: "electronica-basica"
@@ -104,3 +104,9 @@ Estas cifras son orientativas: mira siempre la ficha del fabricante cuando la co
 Elige el conector por el uso, no por costumbre. **Dupont** para probar sobre la mesa, **JST** para baterías y módulos que se desenchufan, **clemas** para bornes con tornillo y **Faston krimpado** para uniones firmes. Fíjate también en el grosor del cable: en AWG, **menos número significa más sección**.
 
 Antes de cerrar el proyecto, revisa tres cosas: que el conector aguante la corriente, que la polaridad esté bien marcada y que cada cable resista un tirón suave. Con eso evitarás la mayoría de fallos de montaje.
+
+## Sigue con
+
+- [Protoboard paso a paso](/electronica-basica/19-protoboard/) para usar cables Dupont sin errores.
+- [Pulsadores y pull-up/pull-down](/electronica-basica/22-pulsadores-pull-up-pull-down/) para conectar entradas.
+- [Cómo soldar cables y terminales](/electronica-basica/13-soldadura-basica/) para las uniones permanentes.

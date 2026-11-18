@@ -1,7 +1,7 @@
 ---
 title: "Código de colores de resistencias: cómo leerlas y comprobarlas"
 description: "Aprende a leer las bandas de color de una resistencia, calcular su valor y comprobarlo con un multímetro paso a paso."
-pubDate: 2026-11-28
+pubDate: 2026-11-04
 category: "Componentes"
 tags: ["resistencias", "código de colores", "multímetro", "electrónica"]
 section: "electronica-basica"
@@ -126,3 +126,9 @@ Anota el valor calculado y el medido. Al principio verás pequeñas diferencias;
 Leer una resistencia es contar bandas: dos o tres dígitos, un multiplicador y una tolerancia. La banda dorada o plateada marca el final, así que empieza por el otro lado. Con marrón, negro, rojo y dorado tienes **1 kΩ ±5 %**.
 
 Después, confirma siempre con el multímetro en Ω y con el circuito apagado. La tabla de colores al principio parece mucha información, pero en pocas sesiones te quedas con los valores habituales. Cuando ya leas resistencias sin dudar, el siguiente paso es elegir la potencia adecuada y soldarlas.
+
+## Sigue con
+
+- [Ley de Ohm y potencia](/electronica-basica/17-ley-de-ohm/) para usar el valor que acabas de leer.
+- [Resistencias en serie y paralelo](/electronica-basica/18-resistencias-serie-paralelo/) para calcular una equivalente.
+- [LED y resistencia limitadora](/electronica-basica/14-led-resistencia/) para elegir la resistencia de un LED.

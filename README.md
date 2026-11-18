@@ -8,20 +8,20 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 - Repo público: https://github.com/zygovid/tecnologiapractica
 - Cloudflare Pages: proyecto `tecnologiapractica` (Direct Upload), dominio principal activo.
 - `www` redirige con 301 al dominio principal.
-- Silo visible: **Electrónica básica** con 6 guías para principiantes.
+- Silo visible: **Electrónica básica** con 12 guías para principiantes y una ruta de aprendizaje.
 - Los 10 artículos anteriores de automatización están como `draft: true` y fuera del sitemap; sus plantillas se conservan en `src/_archived/`.
 - Las rutas antiguas `/automatizacion/*` redirigen a una página `noindex` mediante `public/_redirects`.
 - Auto-deploy con GitHub Actions (`.github/workflows/deploy.yml`). Cloudflare Pages sigue siendo un proyecto Direct Upload; el workflow compila y despliega con Wrangler.
 - GA4 activo con el ID de medición `G-C0MP2F89KS` y Consent Mode v2 (denegado hasta aceptar cookies).
 - El consentimiento se puede reabrir desde el footer y desde la política de cookies para cambiar la elección.
-- SEO técnico: `WebSite`/`BlogPosting`/`BreadcrumbList` JSON-LD, 404 personalizada y cabeceras de seguridad en `public/_headers`.
+- SEO técnico: `WebSite`/`BlogPosting`/`BreadcrumbList` JSON-LD, 404 personalizada, cabeceras de seguridad en `public/_headers` y enlazado interno entre guías.
 - Correo `hola@tecnologiapractica.com` activo con Cloudflare Email Routing: reenvía a un correo privado. Solo recepción; las respuestas salen desde esa cuenta personal.
 
 ## Estructura
 
 ```
 src/
-  content/blog/           → artículos Markdown (6 visibles + 10 borradores)
+  content/blog/           → artículos Markdown (12 visibles + 10 borradores)
   content.config.ts       → esquema con section, cover, coverAlt y draft
   lib/
     legal.ts              → datos del titular usados en las páginas legales
@@ -33,7 +33,7 @@ src/
   pages/
     404.astro             → página no encontrada
     index.astro           → portada agrupada por sección
-    electronica-basica/   → índice y plantilla [...slug].astro
+    electronica-basica/   → índice con ruta de aprendizaje y plantilla [...slug].astro
     servicios.astro
     sobre-mi.astro
     contacto.astro
@@ -82,7 +82,7 @@ npm run preview  # ver el build localmente
 
 ## Revisión de artículos
 
-Los 6 artículos visibles son nuevos y están pensados para principiantes:
+Los 12 artículos visibles están pensados para principiantes:
 
 - `11-multimetro-digital.md`
 - `12-codigo-colores-resistencias.md`
@@ -90,6 +90,12 @@ Los 6 artículos visibles son nuevos y están pensados para principiantes:
 - `14-led-resistencia.md`
 - `15-componentes-multimetro.md`
 - `16-conectores-basicos.md`
+- `17-ley-de-ohm.md`
+- `18-resistencias-serie-paralelo.md`
+- `19-protoboard.md`
+- `20-medir-corriente-multimetro.md`
+- `21-condensadores.md`
+- `22-pulsadores-pull-up-pull-down.md`
 
 Los 10 artículos de automatización siguen en `src/content/blog/` como borradores (`draft: true`). No se muestran ni entran en el sitemap. Para volver a publicarlos, cambia `draft` a `false`, devuelve las plantillas desde `src/_archived/automatizacion/` a `src/pages/automatizacion/` y añade `automatizacion` a `visibleSectionIds` en `src/lib/sections.ts`.
 

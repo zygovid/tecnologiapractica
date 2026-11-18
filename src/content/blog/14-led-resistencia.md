@@ -1,7 +1,7 @@
 ---
 title: "LED y resistencia limitadora: cómo elegirla sin quemar el LED"
 description: "Calcula la resistencia correcta para un LED, entiende la caída de tensión y evita el error más común de los principiantes."
-pubDate: 2026-11-30
+pubDate: 2026-11-06
 category: "Circuitos"
 tags: ["LED", "resistencia", "ohm", "electrónica"]
 section: "electronica-basica"
@@ -102,3 +102,9 @@ El **ánodo** va al positivo (+) y el **cátodo** al negativo (−) o masa. Si l
 La idea es una sola: la resistencia se queda con la tensión que el LED no usa y frena la corriente. Con **R = (Vs − Vf) / I**, solo necesitas la fuente y el color. Para 5 V y LED rojo a 20 mA, el resultado es **150 Ω**, y 1/4 W basta.
 
 Quédate con cuatro claves: **20 mA**, **2 V o 3 V según el color**, **valor normalizado mayor si dudas** y **ánodo al positivo**. Con eso ya puedes montar indicadores sin quemar un solo LED.
+
+## Sigue con
+
+- [Ley de Ohm y potencia](/electronica-basica/17-ley-de-ohm/) para repasar la fórmula desde cero.
+- [Resistencias en serie y paralelo](/electronica-basica/18-resistencias-serie-paralelo/) para repartir la caída de tensión.
+- [Código de colores de resistencias](/electronica-basica/12-codigo-colores-resistencias/) para identificar el valor elegido.

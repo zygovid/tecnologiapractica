@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Tipos de condensadores y lectura del código 104 como 100 nanofaradios">
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Condensadores: tipo, polaridad y código</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">El código de tres cifras se lee en picofaradios. Los electrolíticos sí tienen polaridad.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+    <g transform="translate(55 140)">
+      <rect width="500" height="370" rx="16" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="250" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f0a500">Dos tipos habituales</text>
+
+      <ellipse cx="130" cy="160" rx="72" ry="44" fill="#e6b86a" stroke="#f0a500" stroke-width="3"/>
+      <ellipse cx="130" cy="150" rx="58" ry="30" fill="#f6d18b" opacity="0.55"/>
+      <line x1="86" y1="198" x2="86" y2="245" stroke="#9da7b3" stroke-width="5"/>
+      <line x1="174" y1="198" x2="174" y2="245" stroke="#9da7b3" stroke-width="5"/>
+      <text x="130" y="275" text-anchor="middle" font-size="17" fill="#e6edf3">Cerámico</text>
+      <text x="130" y="300" text-anchor="middle" font-size="15" fill="#9da7b3">sin polaridad</text>
+
+      <rect x="300" y="112" width="92" height="150" rx="22" fill="#1f4d6b" stroke="#58a6ff" stroke-width="3"/>
+      <rect x="300" y="112" width="24" height="150" rx="12" fill="#e6edf3" opacity="0.85"/>
+      <text x="346" y="170" text-anchor="middle" font-size="14" fill="#e6edf3">470</text>
+      <text x="346" y="190" text-anchor="middle" font-size="14" fill="#e6edf3">µF</text>
+      <text x="346" y="210" text-anchor="middle" font-size="12" fill="#e6edf3">25 V</text>
+      <line x1="346" y1="262" x2="346" y2="292" stroke="#9da7b3" stroke-width="5"/>
+      <text x="346" y="320" text-anchor="middle" font-size="17" fill="#e6edf3">Electrolítico</text>
+      <text x="346" y="345" text-anchor="middle" font-size="15" fill="#ff6b6b">polarizado: respeta −</text>
+    </g>
+
+    <g transform="translate(605 140)">
+      <rect width="540" height="370" rx="16" fill="#0d1117" stroke="#f0a500" stroke-width="2"/>
+      <text x="270" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f0a500">Leer 104</text>
+      <text x="60" y="110" font-size="58" font-weight="700" fill="#e6edf3">104</text>
+      <text x="205" y="100" font-size="16" fill="#9da7b3">10</text>
+      <text x="205" y="122" font-size="14" fill="#7ee787">valor</text>
+      <text x="265" y="100" font-size="16" fill="#9da7b3">4</text>
+      <text x="265" y="122" font-size="14" fill="#7ee787">ceros</text>
+      <text x="320" y="100" font-size="16" fill="#9da7b3">pF</text>
+      <text x="320" y="122" font-size="14" fill="#7ee787">unidad</text>
+
+      <line x1="60" y1="150" x2="480" y2="150" stroke="#30363d" stroke-width="2"/>
+
+      <text x="60" y="195" font-size="22" fill="#e6edf3">10 × 10⁴ pF</text>
+      <text x="60" y="235" font-size="22" fill="#e6edf3">= 100.000 pF</text>
+      <text x="60" y="275" font-size="22" fill="#e6edf3">= 100 nF</text>
+      <text x="60" y="315" font-size="22" font-weight="700" fill="#7ee787">= 0,1 µF</text>
+
+      <rect x="330" y="180" width="160" height="150" rx="10" fill="#1c2230" stroke="#30363d" stroke-width="2"/>
+      <text x="410" y="210" text-anchor="middle" font-size="15" fill="#f0a500">Equivalencias</text>
+      <text x="410" y="240" text-anchor="middle" font-size="14" fill="#e6edf3">1 µF = 1.000 nF</text>
+      <text x="410" y="264" text-anchor="middle" font-size="14" fill="#e6edf3">1 nF = 1.000 pF</text>
+      <text x="410" y="300" text-anchor="middle" font-size="13" fill="#9da7b3">104K: K = 10 %</text>
+    </g>
+  </g>
+</svg>

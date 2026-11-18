@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Circuito pull-up y pull-down con pulsador y resistencia de 10 kiloohmios">
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Pull-up y pull-down: fijar la entrada</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">La resistencia evita que la entrada quede flotando cuando el pulsador está abierto.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+    <g transform="translate(55 140)">
+      <rect width="520" height="370" rx="16" fill="#1c2230" stroke="#7ee787" stroke-width="2"/>
+      <text x="260" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#7ee787">Pull-up (activo en bajo)</text>
+
+      <line x1="90" y1="125" x2="430" y2="125" stroke="#ff6b6b" stroke-width="5"/>
+      <text x="90" y="112" font-size="15" fill="#ff6b6b">Vcc</text>
+      <line x1="260" y1="125" x2="260" y2="165" stroke="#e6edf3" stroke-width="5"/>
+      <path d="M260 165 L235 180 L285 200 L235 220 L285 240 L260 255" fill="none" stroke="#f0a500" stroke-width="5" stroke-linejoin="round"/>
+      <text x="300" y="205" font-size="15" fill="#f0a500">10 kΩ</text>
+
+      <line x1="260" y1="255" x2="260" y2="285" stroke="#e6edf3" stroke-width="5"/>
+      <circle cx="260" cy="292" r="7" fill="#e6edf3"/>
+      <line x1="260" y1="292" x2="260" y2="315" stroke="#e6edf3" stroke-width="5"/>
+      <line x1="225" y1="315" x2="295" y2="315" stroke="#e6edf3" stroke-width="5"/>
+      <line x1="295" y1="315" x2="320" y2="345" stroke="#e6edf3" stroke-width="5"/>
+      <text x="230" y="338" font-size="14" fill="#9da7b3">pulsador</text>
+      <line x1="320" y1="345" x2="320" y2="380" stroke="#e6edf3" stroke-width="5"/>
+
+      <line x1="90" y1="380" x2="430" y2="380" stroke="#58a6ff" stroke-width="5"/>
+      <text x="90" y="404" font-size="15" fill="#58a6ff">GND</text>
+      <line x1="320" y1="380" x2="320" y2="380" stroke="#58a6ff" stroke-width="5"/>
+
+      <line x1="260" y1="292" x2="440" y2="292" stroke="#7ee787" stroke-width="4"/>
+      <polygon points="440,292 426,285 426,299" fill="#7ee787"/>
+      <text x="447" y="288" font-size="15" fill="#7ee787">entrada</text>
+      <text x="447" y="310" font-size="13" fill="#9da7b3">HIGH en reposo</text>
+      <text x="447" y="330" font-size="13" fill="#9da7b3">LOW al pulsar</text>
+    </g>
+
+    <g transform="translate(625 140)">
+      <rect width="520" height="370" rx="16" fill="#0d1117" stroke="#f0a500" stroke-width="2"/>
+      <text x="260" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f0a500">Pull-down (activo en alto)</text>
+
+      <line x1="90" y1="125" x2="430" y2="125" stroke="#ff6b6b" stroke-width="5"/>
+      <text x="90" y="112" font-size="15" fill="#ff6b6b">Vcc</text>
+      <line x1="230" y1="125" x2="230" y2="165" stroke="#e6edf3" stroke-width="5"/>
+      <line x1="195" y1="165" x2="265" y2="165" stroke="#e6edf3" stroke-width="5"/>
+      <line x1="265" y1="165" x2="290" y2="195" stroke="#e6edf3" stroke-width="5"/>
+      <text x="200" y="188" font-size="14" fill="#9da7b3">pulsador</text>
+      <line x1="290" y1="195" x2="290" y2="230" stroke="#e6edf3" stroke-width="5"/>
+
+      <line x1="230" y1="230" x2="290" y2="230" stroke="#e6edf3" stroke-width="5"/>
+      <circle cx="230" cy="230" r="7" fill="#e6edf3"/>
+      <line x1="230" y1="230" x2="230" y2="255" stroke="#e6edf3" stroke-width="5"/>
+      <path d="M230 255 L205 270 L255 290 L205 310 L255 330 L230 345" fill="none" stroke="#f0a500" stroke-width="5" stroke-linejoin="round"/>
+      <text x="270" y="300" font-size="15" fill="#f0a500">10 kΩ</text>
+      <line x1="230" y1="345" x2="230" y2="380" stroke="#e6edf3" stroke-width="5"/>
+
+      <line x1="90" y1="380" x2="430" y2="380" stroke="#58a6ff" stroke-width="5"/>
+      <text x="90" y="404" font-size="15" fill="#58a6ff">GND</text>
+
+      <line x1="230" y1="230" x2="440" y2="230" stroke="#7ee787" stroke-width="4"/>
+      <polygon points="440,230 426,223 426,237" fill="#7ee787"/>
+      <text x="447" y="226" font-size="15" fill="#7ee787">entrada</text>
+      <text x="447" y="248" font-size="13" fill="#9da7b3">LOW en reposo</text>
+      <text x="447" y="268" font-size="13" fill="#9da7b3">HIGH al pulsar</text>
+    </g>
+  </g>
+</svg>

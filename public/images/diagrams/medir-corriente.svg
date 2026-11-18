@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Medición de corriente correcta en serie y error de conectarla en paralelo con la fuente">
+  <rect width="1200" height="560" fill="#161b22"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="40" y="50" font-size="28" font-weight="700" fill="#e6edf3">Medir corriente: el multímetro va en serie</text>
+    <text x="40" y="82" font-size="17" fill="#9da7b3">La corriente debe atravesar el instrumento. En paralelo con la fuente, haces un cortocircuito.</text>
+    <line x1="40" y1="102" x2="1160" y2="102" stroke="#30363d" stroke-width="2"/>
+
+    <g transform="translate(55 140)">
+      <rect width="520" height="370" rx="16" fill="#1c2230" stroke="#7ee787" stroke-width="2"/>
+      <text x="260" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#7ee787">Correcto: en serie</text>
+
+      <rect x="60" y="155" width="110" height="64" rx="9" fill="#0d1117" stroke="#58a6ff" stroke-width="3"/>
+      <text x="115" y="181" text-anchor="middle" font-size="18" fill="#58a6ff">5 V</text>
+      <text x="115" y="203" text-anchor="middle" font-size="13" fill="#9da7b3">fuente</text>
+      <line x1="170" y1="187" x2="230" y2="187" stroke="#58a6ff" stroke-width="5"/>
+      <path d="M230 187 L250 157 L275 217 L300 157 L325 217 L345 187" fill="none" stroke="#e6edf3" stroke-width="5" stroke-linejoin="round"/>
+      <text x="288" y="145" text-anchor="middle" font-size="15" fill="#e6edf3">330 Ω</text>
+      <line x1="345" y1="187" x2="392" y2="187" stroke="#58a6ff" stroke-width="5"/>
+
+      <rect x="392" y="140" width="92" height="94" rx="8" fill="#0d1117" stroke="#f0a500" stroke-width="2"/>
+      <text x="438" y="168" text-anchor="middle" font-size="14" fill="#f0a500">mA</text>
+      <text x="438" y="194" text-anchor="middle" font-size="22" font-weight="700" fill="#e6edf3">15</text>
+      <text x="438" y="216" text-anchor="middle" font-size="12" fill="#9da7b3">COM</text>
+
+      <line x1="484" y1="187" x2="505" y2="187" stroke="#58a6ff" stroke-width="5"/>
+      <path d="M505 187 L528 160 L552 214 L576 160 L600 187" fill="none" stroke="#e6edf3" stroke-width="5" stroke-linejoin="round"/>
+      <text x="552" y="148" text-anchor="middle" font-size="15" fill="#e6edf3">LED</text>
+      <line x1="600" y1="187" x2="640" y2="187" stroke="#58a6ff" stroke-width="5"/>
+      <line x1="640" y1="187" x2="640" y2="300" stroke="#58a6ff" stroke-width="5"/>
+      <line x1="640" y1="300" x2="115" y2="300" stroke="#58a6ff" stroke-width="5"/>
+      <line x1="115" y1="300" x2="115" y2="219" stroke="#58a6ff" stroke-width="5"/>
+      <text x="370" y="330" text-anchor="middle" font-size="16" fill="#9da7b3">La corriente entra por mA y sale por COM.</text>
+    </g>
+
+    <g transform="translate(625 140)">
+      <rect width="520" height="370" rx="16" fill="#0d1117" stroke="#ff6b6b" stroke-width="2"/>
+      <text x="260" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#ff6b6b">Incorrecto: en paralelo</text>
+
+      <rect x="80" y="150" width="110" height="64" rx="9" fill="#0d1117" stroke="#58a6ff" stroke-width="3"/>
+      <text x="135" y="176" text-anchor="middle" font-size="18" fill="#58a6ff">5 V</text>
+      <text x="135" y="198" text-anchor="middle" font-size="13" fill="#9da7b3">fuente</text>
+      <line x1="190" y1="182" x2="240" y2="182" stroke="#58a6ff" stroke-width="5"/>
+      <line x1="240" y1="182" x2="290" y2="182" stroke="#58a6ff" stroke-width="5"/>
+      <rect x="290" y="135" width="92" height="94" rx="8" fill="#0d1117" stroke="#ff6b6b" stroke-width="3"/>
+      <text x="336" y="163" text-anchor="middle" font-size="14" fill="#ff6b6b">mA</text>
+      <text x="336" y="189" text-anchor="middle" font-size="24" font-weight="700" fill="#ff6b6b">!</text>
+      <text x="336" y="213" text-anchor="middle" font-size="12" fill="#9da7b3">COM</text>
+      <line x1="382" y1="182" x2="430" y2="182" stroke="#58a6ff" stroke-width="5"/>
+      <line x1="430" y1="182" x2="430" y2="300" stroke="#58a6ff" stroke-width="5"/>
+      <line x1="430" y1="300" x2="135" y2="300" stroke="#58a6ff" stroke-width="5"/>
+      <line x1="135" y1="300" x2="135" y2="214" stroke="#58a6ff" stroke-width="5"/>
+
+      <line x1="240" y1="120" x2="430" y2="310" stroke="#ff6b6b" stroke-width="8" opacity="0.8"/>
+      <line x1="430" y1="120" x2="240" y2="310" stroke="#ff6b6b" stroke-width="8" opacity="0.8"/>
+      <text x="260" y="335" text-anchor="middle" font-size="16" fill="#ff6b6b">Cortocircuito: el fusible puede saltar</text>
+    </g>
+  </g>
+</svg>

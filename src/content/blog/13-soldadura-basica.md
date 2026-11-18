@@ -1,7 +1,7 @@
 ---
 title: "Cómo soldar cables y terminales por primera vez"
 description: "Guía práctica para soldar cables y terminales con estaño: herramientas, temperatura, junta correcta y errores de principiante."
-pubDate: 2026-11-29
+pubDate: 2026-11-05
 category: "Herramientas"
 tags: ["soldadura", "estaño", "herramientas", "principiantes"]
 section: "electronica-basica"
@@ -133,3 +133,9 @@ Comprueba siempre la unión con el multímetro en continuidad. Si suena, tienes 
 Soldar bien se resume en cuatro ideas: herramientas mínimas, estaño con fundente, temperatura de unas 300-350 °C y una punta limpia. Calienta la pieza, no el estaño, usa la cantidad justa y no muevas la unión hasta que enfríe.
 
 Una junta brillante y cónica es señal de buen trabajo; una bola opaca pide repetir la operación. Empieza con cables y terminales de desecho, comprueba la continuidad con el multímetro y pasa a la placa cuando ya te salga sin pensar.
+
+## Sigue con
+
+- [Protoboard paso a paso](/electronica-basica/19-protoboard/) para montar sin soldar.
+- [Cables y conectores básicos](/electronica-basica/16-conectores-basicos/) para elegir la unión adecuada.
+- [Pulsadores y pull-up/pull-down](/electronica-basica/22-pulsadores-pull-up-pull-down/) para practicar con entradas.

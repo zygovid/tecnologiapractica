@@ -1,7 +1,7 @@
 ---
 title: "Cómo usar un multímetro digital: voltaje, continuidad y resistencia"
 description: "Aprende a medir voltaje, continuidad y resistencia con un multímetro digital sin quemar el equipo ni confundirte con las sondas."
-pubDate: 2026-11-27
+pubDate: 2026-11-03
 category: "Herramientas"
 tags: ["multímetro", "principiantes", "medidas", "electrónica"]
 section: "electronica-basica"
@@ -124,3 +124,9 @@ Si vas a medir en una instalación de 230 V, extrema las precauciones: usa sonda
 Un multímetro digital se reduce a tres gestos: coloca la sonda negra en **COM** y la roja en **VΩ**, elige el símbolo correcto y decide si mides en paralelo (voltaje) o con el circuito apagado (continuidad y resistencia). El rango automático te quita una preocupación; con rango manual, empieza alto y baja.
 
 Domina estas tres medidas antes de pasar a corriente u otras funciones. Con ellas puedes comprobar una batería, localizar un cable cortado y verificar una resistencia. La seguridad siempre va primero: apaga, revisa la rueda y vuelve a mirar antes de tocar.
+
+## Sigue con
+
+- [Cómo medir corriente con el multímetro](/electronica-basica/20-medir-corriente-multimetro/) para usar el borne de mA sin fundir el fusible.
+- [Ley de Ohm y potencia](/electronica-basica/17-ley-de-ohm/) para entender qué estás midiendo.
+- [Diodo, condensador y transistor](/electronica-basica/15-componentes-multimetro/) para las pruebas con modo diodo.
