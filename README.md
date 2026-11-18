@@ -12,6 +12,7 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 - Los 10 artículos anteriores de automatización están como `draft: true` y fuera del sitemap; sus plantillas se conservan en `src/_archived/`.
 - Las rutas antiguas `/automatizacion/*` redirigen a una página `noindex` mediante `public/_redirects`.
 - Auto-deploy con GitHub Actions (`.github/workflows/deploy.yml`). Cloudflare Pages sigue siendo un proyecto Direct Upload; el workflow compila y despliega con Wrangler.
+- GA4 activo con el ID de medición `G-C0MP2F89KS` y Consent Mode v2 (denegado hasta aceptar cookies).
 
 ## Estructura
 
@@ -47,7 +48,7 @@ public/
 - Las portadas se generan en `src/assets/covers/` y Astro las convierte a AVIF/WebP con `srcset`.
 - Los diagramas SVG viven en `public/images/diagrams/` y se insertan con `<figure>` y `<figcaption>`.
 - Todos los artículos incluyen JSON-LD `BlogPosting`, canonical, `og:image` y enlaces de retorno.
-- GA4 permanece desactivado mientras `G-XXXXXXXXXX` siga sin sustituirse.
+- La analítica solo se activa después de aceptar las cookies (Consent Mode v2).
 
 ## Comandos
 
@@ -58,17 +59,13 @@ npm run build    # genera la web en dist/
 npm run preview  # ver el build localmente
 ```
 
-## Antes de publicar: datos que debes rellenar
+## Configuración pendiente
 
-1. **Google Analytics 4**
-   - Edita `src/layouts/BaseLayout.astro` y sustituye `G-XXXXXXXXXX` por tu ID real.
-   - Mientras el placeholder siga ahí, el script de GA4 no se carga. Consent Mode v2 ya está preparado.
-
-2. **Correo de contacto**
+1. **Correo de contacto**
    - Aparece en `/servicios/`, `/aviso-legal/` y `/privacidad/`: `hola@tecnologiapractica.com`.
    - Créalo en Cloudflare (Email Routing) o redirígelo a tu Gmail.
 
-3. **Datos del titular en el aviso legal**
+2. **Datos del titular en el aviso legal**
    - Revisa `src/pages/aviso-legal.astro` y añade tus datos reales (nombre/NIF o la información que exija tu jurisdicción). **No es asesoramiento legal**: revisa la normativa aplicable.
 
 ## Revisión de artículos

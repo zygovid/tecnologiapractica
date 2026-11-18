@@ -25,7 +25,7 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const GA_ID = 'G-XXXXXXXXXX';
+const GA_ID = 'G-C0MP2F89KS';
 const jsonLdScript = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : '';
 ---
 
@@ -56,6 +56,29 @@ const jsonLdScript = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : 
 
     {GA_ID !== 'G-XXXXXXXXXX' && (
       <>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { window.dataLayer.push(arguments); }
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            wait_for_update: 500,
+          });
+          try {
+            var consent = localStorage.getItem('tp_cookie_consent');
+            if (consent !== null) {
+              var state = consent === 'all' ? 'granted' : 'denied';
+              gtag('consent', 'update', {
+                ad_storage: state,
+                ad_user_data: state,
+                ad_personalization: state,
+                analytics_storage: state,
+              });
+            }
+          } catch (error) {}
+        </script>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
         <script is:inline define:vars={{ GA_ID }}>
           window.dataLayer = window.dataLayer || [];
