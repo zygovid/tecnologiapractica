@@ -6,12 +6,12 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 
 - Web publicada en https://tecnologiapractica.com
 - Repo público: https://github.com/zygovid/tecnologiapractica
-- Cloudflare Pages: proyecto `tecnologiapractica`, despliegue activo https://6ac541c2.tecnologiapractica.pages.dev
+- Cloudflare Pages: proyecto `tecnologiapractica` (Direct Upload), dominio principal activo.
 - `www` redirige con 301 al dominio principal.
 - Silo visible: **Electrónica básica** con 6 guías para principiantes.
 - Los 10 artículos anteriores de automatización están como `draft: true` y fuera del sitemap; sus plantillas se conservan en `src/_archived/`.
 - Las rutas antiguas `/automatizacion/*` redirigen a una página `noindex` mediante `public/_redirects`.
-- Auto-deploy por Git no configurado: Cloudflare Pages devolvió el error `8000011` al conectar el repo. Los cambios se despliegan con Wrangler.
+- Auto-deploy con GitHub Actions (`.github/workflows/deploy.yml`). Cloudflare Pages sigue siendo un proyecto Direct Upload; el workflow compila y despliega con Wrangler.
 
 ## Estructura
 
@@ -54,16 +54,15 @@ public/
 ```sh
 npm install      # instalar dependencias
 npm run dev      # servidor local en http://localhost:4321
-npm run build    → genera la web en dist/
+npm run build    # genera la web en dist/
 npm run preview  # ver el build localmente
 ```
 
 ## Antes de publicar: datos que debes rellenar
 
- 1. **Google Analytics 4**
-    - Edita `src/layouts/BaseLayout.astro` y sustituye `G-XXXXXXXXXX` por tu ID real.
-    - Mientras el placeholder siga ahí, el script de GA4 no se carga. Consent Mode v2 ya está preparado.
-
+1. **Google Analytics 4**
+   - Edita `src/layouts/BaseLayout.astro` y sustituye `G-XXXXXXXXXX` por tu ID real.
+   - Mientras el placeholder siga ahí, el script de GA4 no se carga. Consent Mode v2 ya está preparado.
 
 2. **Correo de contacto**
    - Aparece en `/servicios/`, `/aviso-legal/` y `/privacidad/`: `hola@tecnologiapractica.com`.
@@ -87,22 +86,28 @@ Los 10 artículos de automatización siguen en `src/content/blog/` como borrador
 
 ## Despliegue en Cloudflare Pages
 
-### Estado real del despliegue
+### Auto-deploy con GitHub Actions
 
-El proyecto ya está desplegado en Cloudflare Pages mediante direct upload. El intento de conectar GitHub desde Cloudflare falló con HTTP 401, código `8000011` (`There is an internal issue with your Cloudflare Pages Git installation...`), así que **no hay auto-deploy por Git** por ahora.
+El despliegue se ejecuta con `.github/workflows/deploy.yml` en cada push a `master`:
 
-Para publicar cambios:
+- Node 22 y `npm ci`.
+- `npm run build`.
+- `npx wrangler pages deploy dist --project-name=tecnologiapractica --branch=master`.
+
+Requiere el secreto de repositorio `CLOUDFLARE_API_TOKEN` con permiso **Cuenta → Cloudflare Pages → Editar**. El `account_id` va en el workflow.
+
+### Despliegue manual (fallback)
 
 ```sh
 npm run build
 npx wrangler pages deploy dist --project-name=tecnologiapractica --branch=master
 ```
 
-Si quieres volver a intentar el auto-deploy, hazlo desde **Cloudflare → Workers & Pages → tecnologiapractica → Settings → Builds & deployments → Connect to Git** con:
+La primera vez habrá que autenticarse con `wrangler login`.
 
-- Build command: `npm run build`
-- Build output directory: `dist`
-- Node version: 22 o superior (variable `NODE_VERSION=22` si hace falta).
+### Git integration
+
+El proyecto actual se creó con Direct Upload y Cloudflare no permite convertirlo a Git integration. No hay que recrear el proyecto ni mover el dominio: el auto-deploy queda cubierto con GitHub Actions.
 
 ### Dominio y DNS
 
@@ -125,5 +130,5 @@ Una vez la web esté online:
 
 El archivo `~/.config/opencode/opencode.jsonc` incluye los servidores MCP de GitHub y Cloudflare.
 
-- Cloudflare MCP: conectado.
-- GitHub MCP: falla con `Incompatible auth server: does not support dynamic client registration`; se usa GitHub CLI (`gh`) en su lugar.
+- Cloudflare MCP: conectado (OAuth).
+- GitHub MCP: conectado mediante un token de GitHub en la variable `GITHUB_PERSONAL_ACCESS_TOKEN`, enviado en la cabecera `Authorization` y con `oauth: false`, porque el servidor remoto no admite registro dinámico de clientes.
