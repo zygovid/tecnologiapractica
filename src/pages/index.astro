@@ -1,19 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
+import ArticleRow from '../components/ArticleRow.astro';
 import { sections, visibleSectionIds } from '../lib/sections';
 
 const posts = await getCollection('blog', ({ data }) =>
   !data.draft && visibleSectionIds.includes(data.section),
 );
 
-const grouped = visibleSectionIds.map((id) => ({
-  section: sections[id],
-  posts: posts
+const grouped = visibleSectionIds.map((id) => {
+  const sectionPosts = posts
     .filter((post) => post.data.section === id)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
-}));
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return {
+    section: sections[id],
+    posts: sectionPosts.slice(0, 6),
+    total: sectionPosts.length,
+  };
+});
 
 const siteUrl = Astro.site ?? new URL('https://tecnologiapractica.com');
 const jsonLd = {
@@ -45,7 +49,7 @@ const jsonLd = {
     <p class="hero__note">Guías pensadas para quien está empezando de verdad.</p>
   </section>
 
-  {grouped.map(({ section, posts: sectionPosts }) => (
+  {grouped.map(({ section, posts: sectionPosts, total }) => (
     <section class="section-block" aria-labelledby={`section-${section.id}`}>
       <div class="section-block__head">
         <div>
@@ -53,16 +57,23 @@ const jsonLd = {
           <h2 id={`section-${section.id}`}>{section.title}</h2>
           <p>{section.lead}</p>
         </div>
-        <a class="section-block__link" href={section.basePath}>Ver todos <span aria-hidden="true">→</span></a>
+        <a class="section-block__link" href={`${section.basePath}articulos/`}>
+          Ver los {total} artículos <span aria-hidden="true">→</span>
+        </a>
       </div>
 
       {sectionPosts.length > 0 ? (
-        <div class="post-grid">
-          {sectionPosts.map((post, index) => <PostCard post={post} featured={index === 0} />)}
+        <div class="article-list">
+          {sectionPosts.map((post) => <ArticleRow post={post} />)}
         </div>
       ) : (
         <p class="empty-state">Los primeros artículos de esta sección están en camino.</p>
       )}
+      <p class="section-block__more">
+        <a href={section.basePath}>Ruta de aprendizaje</a>
+        <span aria-hidden="true"> · </span>
+        <a href={`${section.basePath}articulos/`}>Índice completo</a>
+      </p>
     </section>
   ))}
 </BaseLayout>

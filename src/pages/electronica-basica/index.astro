@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import PostCard from '../../components/PostCard.astro';
+import ArticleRow from '../../components/ArticleRow.astro';
 import { sections } from '../../lib/sections';
 
 const section = sections['electronica-basica'];
@@ -10,6 +10,8 @@ const section = sections['electronica-basica'];
 const posts = (await getCollection('blog', ({ data }) =>
   !data.draft && data.section === 'electronica-basica',
 )).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featured = posts.slice(0, 6);
 ---
 
 <BaseLayout title={section.title} description={section.description}>
@@ -19,127 +21,148 @@ const posts = (await getCollection('blog', ({ data }) =>
     <p class="tag">Guías para principiantes</p>
     <h1>{section.title}</h1>
     <p class="lead">{section.lead}</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="/electronica-basica/11-multimetro-digital/">Empezar la ruta</a>
+      <a class="button button-secondary" href="/electronica-basica/articulos/">Ver todos los artículos</a>
+    </div>
   </header>
+
+  <section class="featured" aria-labelledby="articulos-destacados">
+    <div class="featured__head">
+      <div>
+        <p class="eyebrow">Últimas guías y proyectos</p>
+        <h2 id="articulos-destacados">Artículos destacados</h2>
+      </div>
+      <a class="section-block__link" href="/electronica-basica/articulos/">
+        Ver los {posts.length} artículos <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="article-list">
+      {featured.map((post) => <ArticleRow post={post} />)}
+    </div>
+  </section>
 
   <section class="learning-path" aria-labelledby="ruta-electronica">
     <p class="eyebrow">Ruta recomendada</p>
     <h2 id="ruta-electronica">De cero a montar tu primer circuito</h2>
     <p class="lead">Sigue este orden si empiezas desde cero. Cada guía usa lo aprendido en la anterior.</p>
-    <ol class="path-list">
-      <li>
-        <span class="path-list__num">01</span>
-        <div>
-          <a href="/electronica-basica/11-multimetro-digital/">Usa el multímetro</a>
-          <p>Aprende tensión, continuidad y resistencia antes de tocar nada más.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">02</span>
-        <div>
-          <a href="/electronica-basica/17-ley-de-ohm/">Entiende la ley de Ohm</a>
-          <p>La relación entre tensión, corriente y resistencia.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">03</span>
-        <div>
-          <a href="/electronica-basica/12-codigo-colores-resistencias/">Lee una resistencia</a>
-          <p>Identifica el valor y la tolerancia sin depender del multímetro.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">04</span>
-        <div>
-          <a href="/electronica-basica/18-resistencias-serie-paralelo/">Calcula serie y paralelo</a>
-          <p>Obtén la resistencia equivalente de una red sencilla.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">05</span>
-        <div>
-          <a href="/electronica-basica/14-led-resistencia/">Enciende un LED sin quemarlo</a>
-          <p>Elige la resistencia limitadora con la fórmula de Ohm.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">06</span>
-        <div>
-          <a href="/electronica-basica/19-protoboard/">Monta en protoboard</a>
-          <p>Conecta filas, raíles y componentes sin soldar.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">07</span>
-        <div>
-          <a href="/electronica-basica/20-medir-corriente-multimetro/">Mide la corriente</a>
-          <p>Comprueba el consumo real del circuito en serie.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">08</span>
-        <div>
-          <a href="/electronica-basica/21-condensadores/">Identifica condensadores</a>
-          <p>Lee el código 104, respeta la polaridad y prueba el componente.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">09</span>
-        <div>
-          <a href="/electronica-basica/22-pulsadores-pull-up-pull-down/">Conecta un pulsador</a>
-          <p>Usa pull-up o pull-down para que la entrada no quede flotando.</p>
-        </div>
-      </li>
-    </ol>
-  </section>
 
-  <section class="learning-path" aria-labelledby="siguiente-nivel">
-    <p class="eyebrow">Siguiente nivel</p>
-    <h2 id="siguiente-nivel">Componentes, alimentación y esquemas</h2>
-    <p class="lead">Cuando ya montas un LED y un pulsador, toca entender qué hay detrás de cada bloque.</p>
-    <ol class="path-list">
-      <li>
-        <span class="path-list__num">10</span>
-        <div>
-          <a href="/electronica-basica/23-diodos-polaridad-comprobacion/">Entiende el diodo</a>
-          <p>Polaridad, caída directa y protección de bobinas.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">11</span>
-        <div>
-          <a href="/electronica-basica/24-transistor-como-interruptor/">Usa un transistor</a>
-          <p>Controla cargas mayores con una señal pequeña.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">12</span>
-        <div>
-          <a href="/electronica-basica/25-divisor-tension-potenciometros/">Calcula un divisor</a>
-          <p>Adapta tensiones y ajusta sensores con un potenciómetro.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">13</span>
-        <div>
-          <a href="/electronica-basica/26-alimentar-protoboard/">Alimenta la protoboard</a>
-          <p>5 V, 3,3 V, pilas y masa común sin cortocircuitos.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">14</span>
-        <div>
-          <a href="/electronica-basica/27-reles-y-optoacopladores/">Controla con relé</a>
-          <p>Conmuta cargas con transistor, flyback y aislamiento.</p>
-        </div>
-      </li>
-      <li>
-        <span class="path-list__num">15</span>
-        <div>
-          <a href="/electronica-basica/28-leer-esquema-electrico/">Lee un esquema</a>
-          <p>Símbolos, referencias, nudos y contactos NO/NC.</p>
-        </div>
-      </li>
-    </ol>
+    <div class="path-stage">
+      <h3>Primeros pasos</h3>
+      <ol class="path-list">
+        <li>
+          <span class="path-list__num">01</span>
+          <div>
+            <a href="/electronica-basica/11-multimetro-digital/">Usa el multímetro</a>
+            <p>Aprende tensión, continuidad y resistencia antes de tocar nada más.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">02</span>
+          <div>
+            <a href="/electronica-basica/17-ley-de-ohm/">Entiende la ley de Ohm</a>
+            <p>La relación entre tensión, corriente y resistencia.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">03</span>
+          <div>
+            <a href="/electronica-basica/12-codigo-colores-resistencias/">Lee una resistencia</a>
+            <p>Identifica el valor y la tolerancia sin depender del multímetro.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">04</span>
+          <div>
+            <a href="/electronica-basica/18-resistencias-serie-paralelo/">Calcula serie y paralelo</a>
+            <p>Obtén la resistencia equivalente de una red sencilla.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">05</span>
+          <div>
+            <a href="/electronica-basica/14-led-resistencia/">Enciende un LED sin quemarlo</a>
+            <p>Elige la resistencia limitadora con la fórmula de Ohm.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">06</span>
+          <div>
+            <a href="/electronica-basica/19-protoboard/">Monta en protoboard</a>
+            <p>Conecta filas, raíles y componentes sin soldar.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">07</span>
+          <div>
+            <a href="/electronica-basica/20-medir-corriente-multimetro/">Mide la corriente</a>
+            <p>Comprueba el consumo real del circuito en serie.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">08</span>
+          <div>
+            <a href="/electronica-basica/21-condensadores/">Identifica condensadores</a>
+            <p>Lee el código 104, respeta la polaridad y prueba el componente.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">09</span>
+          <div>
+            <a href="/electronica-basica/22-pulsadores-pull-up-pull-down/">Conecta un pulsador</a>
+            <p>Usa pull-up o pull-down para que la entrada no quede flotando.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="path-stage">
+      <h3>Siguiente nivel</h3>
+      <ol class="path-list" start="10">
+        <li>
+          <span class="path-list__num">10</span>
+          <div>
+            <a href="/electronica-basica/23-diodos-polaridad-comprobacion/">Entiende el diodo</a>
+            <p>Polaridad, caída directa y protección de bobinas.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">11</span>
+          <div>
+            <a href="/electronica-basica/24-transistor-como-interruptor/">Usa un transistor</a>
+            <p>Controla cargas mayores con una señal pequeña.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">12</span>
+          <div>
+            <a href="/electronica-basica/25-divisor-tension-potenciometros/">Calcula un divisor</a>
+            <p>Adapta tensiones y ajusta sensores con un potenciómetro.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">13</span>
+          <div>
+            <a href="/electronica-basica/26-alimentar-protoboard/">Alimenta la protoboard</a>
+            <p>5 V, 3,3 V, pilas y masa común sin cortocircuitos.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">14</span>
+          <div>
+            <a href="/electronica-basica/27-reles-y-optoacopladores/">Controla con relé</a>
+            <p>Conmuta cargas con transistor, flyback y aislamiento.</p>
+          </div>
+        </li>
+        <li>
+          <span class="path-list__num">15</span>
+          <div>
+            <a href="/electronica-basica/28-leer-esquema-electrico/">Lee un esquema</a>
+            <p>Símbolos, referencias, nudos y contactos NO/NC.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
   </section>
 
   <section class="projects" aria-labelledby="proyectos-practicos">
@@ -178,34 +201,46 @@ const posts = (await getCollection('blog', ({ data }) =>
         <p>Zumbador temporizado para puertas y avisos.</p>
       </a>
     </div>
+    <p class="archive-link"><a href="/electronica-basica/articulos/">Ver todos los artículos en formato lista</a></p>
   </section>
-
-  {posts.length > 0 ? (
-    <div class="post-grid">
-      {posts.map((post, index) => <PostCard post={post} featured={index === 0} />)}
-    </div>
-  ) : (
-    <p class="empty-state">Los primeros artículos de esta sección están en camino.</p>
-  )}
 </BaseLayout>
 
 <style>
+  .featured { margin: 0 0 2.5rem; }
+  .featured__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1rem; }
+  .featured__head h2 { margin: 0; }
+
   .learning-path { margin: 0 0 2.5rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .learning-path h2 { margin-top: 0; }
-  .path-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; list-style: none; padding: 0; margin: 1.5rem 0 0; }
-  .path-list li { display: flex; gap: 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+  .path-stage + .path-stage { margin-top: 1.5rem; }
+  .path-stage h3 { font-size: 1rem; margin: 0 0 0.4rem; color: var(--muted); font-weight: 700; }
+  .path-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; list-style: none; padding: 0; margin: 0.8rem 0 0; }
+  .path-list li { display: flex; gap: 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9rem 1rem; }
   .path-list__num { color: var(--accent); font-size: 0.8rem; font-weight: 800; font-variant-numeric: tabular-nums; padding-top: 0.15rem; }
   .path-list a { font-weight: 700; }
-  .path-list p { color: var(--muted); font-size: 0.88rem; margin: 0.3rem 0 0; }
+  .path-list p { color: var(--muted); font-size: 0.88rem; margin: 0.25rem 0 0; }
+
   .projects { margin: 0 0 2.5rem; }
   .projects h2 { margin-top: 0; }
-  .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; margin-top: 1.5rem; }
-  .project-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem; text-decoration: none; }
-  .project-card span { color: var(--accent); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-  .project-card h3 { font-size: 1.05rem; margin: 0.45rem 0 0.35rem; }
-  .project-card p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+  .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; margin-top: 1.2rem; }
+  .project-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; text-decoration: none; }
+  .project-card:hover { border-color: var(--accent); text-decoration: none; }
+  .project-card span { color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .project-card h3 { font-size: 1rem; margin: 0.35rem 0 0.25rem; }
+  .project-card p { color: var(--muted); font-size: 0.85rem; margin: 0; }
+  .archive-link { margin: 1.25rem 0 0; font-weight: 700; }
 
   @media (max-width: 820px) {
+    .featured__head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     .path-list, .project-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .path-list { gap: 0.5rem; }
+    .path-list li { padding: 0.7rem 0.85rem; }
+    .path-list p { display: none; }
+    .project-grid { gap: 0.6rem; }
+    .project-card { padding: 0.85rem 0.95rem; }
+    .project-card p { display: none; }
   }
 </style>

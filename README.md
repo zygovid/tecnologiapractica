@@ -8,7 +8,7 @@ Web estática para `tecnologiapractica.com`, construida con Astro 5.
 - Repo público: https://github.com/zygovid/tecnologiapractica
 - Cloudflare Pages: proyecto `tecnologiapractica` (Direct Upload), dominio principal activo.
 - `www` redirige con 301 al dominio principal.
-- Silo visible: **Electrónica básica** con 24 guías para principiantes, una ruta de aprendizaje y 6 proyectos prácticos.
+- Silo visible: **Electrónica básica** con 24 guías para principiantes, ruta de aprendizaje, proyectos destacados y un índice completo de artículos.
 - Los 10 artículos anteriores de automatización están como `draft: true` y fuera del sitemap; sus plantillas se conservan en `src/_archived/`.
 - Las rutas antiguas `/automatizacion/*` redirigen a una página `noindex` mediante `public/_redirects`.
 - Auto-deploy con GitHub Actions (`.github/workflows/deploy.yml`). Cloudflare Pages sigue siendo un proyecto Direct Upload; el workflow compila y despliega con Wrangler.
@@ -33,7 +33,7 @@ src/
   pages/
     404.astro             → página no encontrada
     index.astro           → portada agrupada por sección
-    electronica-basica/   → índice con ruta de aprendizaje y plantilla [...slug].astro
+    electronica-basica/   → índice con ruta y destacados, articulos.astro (listado completo) y [...slug].astro
     servicios.astro
     sobre-mi.astro
     contacto.astro

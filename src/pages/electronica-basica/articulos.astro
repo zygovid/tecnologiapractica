@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleRow from '../../components/ArticleRow.astro';
+import { sections } from '../../lib/sections';
+
+const section = sections['electronica-basica'];
+
+const posts = (await getCollection('blog', ({ data }) =>
+  !data.draft && data.section === 'electronica-basica',
+)).sort((a, b) => Number(a.id.slice(0, 2)) - Number(b.id.slice(0, 2)));
+
+const guides = posts.filter((post) => post.data.category !== 'Proyectos');
+const projects = posts.filter((post) => post.data.category === 'Proyectos');
+---
+
+<BaseLayout
+  title={`Artículos de ${section.title}`}
+  description="Índice completo de guías y proyectos de electrónica básica: componentes, herramientas, montaje y circuitos prácticos."
+>
+  <Breadcrumbs sectionLabel={section.label} sectionHref={section.basePath} title="Artículos" />
+
+  <header class="section-hero archive-hero">
+    <p class="tag">Índice completo</p>
+    <h1>Todos los artículos</h1>
+    <p class="lead">{posts.length} guías y proyectos de electrónica básica, ordenados de inicio a avanzado.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href={section.basePath}>Volver a la ruta</a>
+      <a class="button button-secondary" href="/electronica-basica/11-multimetro-digital/">Empezar por el principio</a>
+    </div>
+  </header>
+
+  <section class="archive-group" aria-labelledby="guias-todas">
+    <div class="archive-group__head">
+      <h2 id="guias-todas">Guías</h2>
+      <p>{guides.length} artículos</p>
+    </div>
+    <div class="article-list">
+      {guides.map((post) => <ArticleRow post={post} />)}
+    </div>
+  </section>
+
+  <section class="archive-group" aria-labelledby="proyectos-todos">
+    <div class="archive-group__head">
+      <h2 id="proyectos-todos">Proyectos prácticos</h2>
+      <p>{projects.length} montajes</p>
+    </div>
+    <div class="article-list">
+      {projects.map((post) => <ArticleRow post={post} />)}
+    </div>
+  </section>
+</BaseLayout>

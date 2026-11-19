@@ -1,0 +1,42 @@
+---
+import { Picture } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { sectionConfig, type SectionId } from '../lib/sections';
+import { readingMinutes } from '../lib/reading-time';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const section = sectionConfig(post.data.section as SectionId);
+const minutes = readingMinutes(post.body);
+const href = `${section.basePath}${post.id}/`;
+const num = post.id.match(/^\d+/)?.[0];
+---
+
+<article class="article-row">
+  <a class="article-row__link" href={href}>
+    {post.data.cover && (
+      <div class="article-row__media">
+        <Picture
+          src={post.data.cover}
+          formats={['avif', 'webp']}
+          alt=""
+          layout="constrained"
+          width={240}
+          height={126}
+          loading="lazy"
+        />
+      </div>
+    )}
+    <div class="article-row__body">
+      <p class="article-row__eyebrow">
+        {num ? `${num} · ` : ''}{post.data.category} · {minutes} min
+      </p>
+      <h3>{post.data.title}</h3>
+      <p class="article-row__description">{post.data.description}</p>
+    </div>
+    <span class="article-row__arrow" aria-hidden="true">→</span>
+  </a>
+</article>
