@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Protecciones básicas de alimentación</title>
+  <desc id="desc">Cadena de protección con diodo contra polaridad inversa, fusible rearmable PTC y condensador de desacoplo</desc>
+  <rect width="900" height="420" fill="#0d1117"/>
+  <style>
+    .t{fill:#e6edf3;font:16px 'Segoe UI',Arial}.m{fill:#9da7b3;font:14px 'Segoe UI',Arial}.a{fill:#f0a500;font:14px 'Segoe UI',Arial}.b{fill:#58a6ff;font:14px 'Segoe UI',Arial}
+    .w{stroke:#9da7b3;stroke-width:3;fill:none}.p{stroke:#58a6ff;stroke-width:4;fill:none}
+  </style>
+  <text x="450" y="36" text-anchor="middle" class="t">Protecciones sencillas en baja tensión</text>
+  <text x="70" y="185" class="b">+V IN</text>
+  <line x1="120" y1="180" x2="210" y2="180" class="p"/>
+  <polygon points="210,150 270,180 210,210" fill="none" stroke="#f0a500" stroke-width="4"/>
+  <line x1="270" y1="150" x2="270" y2="210" stroke="#f0a500" stroke-width="4"/>
+  <text x="240" y="235" text-anchor="middle" class="m">D1 inversa</text>
+  <line x1="270" y1="180" x2="360" y2="180" class="p"/>
+  <rect x="360" y="150" width="110" height="60" rx="10" fill="#161b22" stroke="#30363d" stroke-width="3"/>
+  <text x="415" y="187" text-anchor="middle" class="t">PTC</text>
+  <text x="415" y="235" text-anchor="middle" class="m">fusible rearmable</text>
+  <line x1="470" y1="180" x2="560" y2="180" class="p"/>
+  <line x1="560" y1="130" x2="560" y2="230" stroke="#9da7b3" stroke-width="4"/>
+  <line x1="585" y1="130" x2="585" y2="230" stroke="#9da7b3" stroke-width="4"/>
+  <text x="572" y="255" text-anchor="middle" class="m">C desacoplo</text>
+  <line x1="585" y1="180" x2="700" y2="180" class="p"/>
+  <rect x="700" y="140" width="120" height="80" rx="10" fill="#161b22" stroke="#30363d" stroke-width="3"/>
+  <text x="760" y="187" text-anchor="middle" class="m">Carga / CI</text>
+  <line x1="120" y1="300" x2="820" y2="300" class="w"/>
+  <text x="70" y="305" class="m">GND</text>
+  <line x1="572" y1="230" x2="572" y2="300" class="w"/>
+  <rect x="90" y="340" width="720" height="55" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="450" y="365" text-anchor="middle" class="m">D1 evita daños por polaridad invertida (caída ~0,3–0,7 V) · PTC limita sobrecorrientes</text>
+  <text x="450" y="385" text-anchor="middle" class="m">100 nF cerca de cada integrado reduce ruido y picos · No sustituye un diseño seguro</text>
+</svg>
