@@ -1,7 +1,7 @@
 ---
 title: "Pilas y autonomía en prototipos: elegir pack y calcular duración"
 description: "Guía práctica para alimentar montajes con pilas: tipos comunes, packs en serie, caída de tensión, cálculo de autonomía y buenas prácticas."
-pubDate: 2026-11-20
+pubDate: 2026-11-19
 category: "Montaje"
 tags: ["pilas", "baterías", "autonomía", "alimentación", "consumo"]
 section: "electronica-basica"

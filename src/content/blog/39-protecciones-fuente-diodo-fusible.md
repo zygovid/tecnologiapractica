@@ -1,7 +1,7 @@
 ---
 title: "Protecciones básicas de fuente: diodo, fusible PTC y desacoplo"
 description: "Cómo proteger montajes de baja tensión con diodo contra inversión de polaridad, fusible rearmable PTC y condensadores de desacoplo."
-pubDate: 2026-11-20
+pubDate: 2026-11-19
 category: "Montaje"
 tags: ["protección", "diodo", "fusible", "PTC", "desacoplo"]
 section: "electronica-basica"

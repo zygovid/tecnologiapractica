@@ -1,4 +1,4 @@
----
+﻿---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -9,45 +9,136 @@ const section = sections['electronica-basica'];
 
 const posts = (await getCollection('blog', ({ data }) =>
   !data.draft && data.section === 'electronica-basica',
-)).sort((a, b) => Number(a.id.slice(0, 2)) - Number(b.id.slice(0, 2)));
+));
 
-const guides = posts.filter((post) => post.data.category !== 'Proyectos');
-const projects = posts.filter((post) => post.data.category === 'Proyectos');
+const byId = new Map(posts.map((post) => [post.id, post]));
+const pick = (ids: string[]) => ids.map((id) => byId.get(id)).filter(Boolean);
+
+const groups = [
+  {
+    id: 'herramientas',
+    title: 'Herramientas y medida',
+    description: 'Multímetro, soldadura y medición de corriente.',
+    items: pick(['11-multimetro-digital', '13-soldadura-basica', '20-medir-corriente-multimetro']),
+  },
+  {
+    id: 'fundamentos',
+    title: 'Fundamentos y cálculo',
+    description: 'Leyes básicas, cálculos y lectura de esquemas.',
+    items: pick([
+      '17-ley-de-ohm',
+      '18-resistencias-serie-paralelo',
+      '25-divisor-tension-potenciometros',
+      '28-leer-esquema-electrico',
+    ]),
+  },
+  {
+    id: 'componentes',
+    title: 'Componentes',
+    description: 'Resistencias, condensadores, diodos, transistores y entradas.',
+    items: pick([
+      '12-codigo-colores-resistencias',
+      '15-componentes-multimetro',
+      '21-condensadores',
+      '22-pulsadores-pull-up-pull-down',
+      '23-diodos-polaridad-comprobacion',
+      '24-transistor-como-interruptor',
+    ]),
+  },
+  {
+    id: 'montaje',
+    title: 'Montaje y control de cargas',
+    description: 'Circuitos en protoboard, conectores y conmutación con relé.',
+    items: pick([
+      '14-led-resistencia',
+      '16-conectores-basicos',
+      '19-protoboard',
+      '27-reles-y-optoacopladores',
+    ]),
+  },
+  {
+    id: 'alimentacion',
+    title: 'Alimentación y energía',
+    description: 'Fuentes, conversión, autonomía y protecciones en baja tensión (5–12 V).',
+    items: pick([
+      '26-alimentar-protoboard',
+      '35-regulador-7805',
+      '36-modulo-buck-lm2596',
+      '37-alimentacion-usb-prototipos',
+      '38-pilas-y-autonomia',
+      '39-protecciones-fuente-diodo-fusible',
+    ]),
+  },
+  {
+    id: 'proyectos',
+    title: 'Proyectos prácticos',
+    description: 'Montajes guiados para aplicar lo aprendido.',
+    items: pick([
+      '29-luz-nocturna-ldr-rele',
+      '30-temporizador-555',
+      '31-sensor-temperatura-comparador',
+      '32-control-motor-dc-l298n',
+      '33-semaforo-leds-temporizador',
+      '34-alarma-pulsador-zumbador',
+      '40-fuente-ajustable-protoboard',
+    ]),
+  },
+];
 ---
 
 <BaseLayout
   title={`Artículos de ${section.title}`}
-  description="Índice completo de guías y proyectos de electrónica básica: componentes, herramientas, montaje y circuitos prácticos."
+  description="Índice completo de guías y proyectos de electrónica básica agrupados por tema: medida, fundamentos, componentes, montaje, alimentación y proyectos."
 >
   <Breadcrumbs sectionLabel={section.label} sectionHref={section.basePath} title="Artículos" />
 
   <header class="section-hero archive-hero">
-    <p class="tag">Índice completo</p>
+    <p class="tag">Índice por temas</p>
     <h1>Todos los artículos</h1>
-    <p class="lead">{posts.length} guías y proyectos de electrónica básica, ordenados de inicio a avanzado.</p>
+    <p class="lead">{posts.length} guías y proyectos de electrónica básica, agrupados por tema.</p>
     <div class="hero-actions">
-      <a class="button button-primary" href={section.basePath}>Volver a la ruta</a>
-      <a class="button button-secondary" href="/electronica-basica/11-multimetro-digital/">Empezar por el principio</a>
+      <a class="button button-primary" href={section.basePath}>Ver la ruta</a>
+      <a class="button button-secondary" href="/electronica-basica/11-multimetro-digital/">Empezar desde cero</a>
     </div>
   </header>
 
-  <section class="archive-group" aria-labelledby="guias-todas">
-    <div class="archive-group__head">
-      <h2 id="guias-todas">Guías</h2>
-      <p>{guides.length} artículos</p>
-    </div>
-    <div class="article-list">
-      {guides.map((post) => <ArticleRow post={post} />)}
-    </div>
-  </section>
+  <nav class="topic-nav" aria-label="Temas">
+    <ul>
+      {groups.map((group) => (
+        <li><a href={`#${group.id}`}>{group.title} <span>{group.items.length}</span></a></li>
+      ))}
+    </ul>
+  </nav>
 
-  <section class="archive-group" aria-labelledby="proyectos-todos">
-    <div class="archive-group__head">
-      <h2 id="proyectos-todos">Proyectos prácticos</h2>
-      <p>{projects.length} montajes</p>
-    </div>
-    <div class="article-list">
-      {projects.map((post) => <ArticleRow post={post} />)}
-    </div>
-  </section>
+  {groups.map((group) => (
+    <section class="archive-group" id={group.id} aria-labelledby={`${group.id}-title`}>
+      <div class="archive-group__head">
+        <div>
+          <h2 id={`${group.id}-title`}>{group.title}</h2>
+          <p class="archive-group__desc">{group.description}</p>
+        </div>
+        <p class="archive-group__count">{group.items.length} {group.items.length === 1 ? 'artículo' : 'artículos'}</p>
+      </div>
+      <div class="article-list">
+        {group.items.map((post) => post && <ArticleRow post={post} />)}
+      </div>
+    </section>
+  ))}
 </BaseLayout>
+
+<style>
+  .topic-nav { margin: 0 0 2rem; }
+  .topic-nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0; }
+  .topic-nav a { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 0.4rem 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--text); text-decoration: none; }
+  .topic-nav a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .topic-nav span { font-size: 0.75rem; color: var(--muted); font-weight: 700; }
+  .archive-group { scroll-margin-top: 5rem; }
+  .archive-group__desc { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.9rem; }
+  .archive-group__count { margin: 0; color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
+  @media (max-width: 760px) {
+    .archive-group__count { white-space: normal; }
+  }
+  @media (max-width: 480px) {
+    .topic-nav a { font-size: 0.82rem; padding: 0.35rem 0.7rem; }
+  }
+</style>

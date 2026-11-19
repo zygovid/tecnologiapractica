@@ -1,7 +1,7 @@
 ---
 title: "Proyecto: fuente ajustable para protoboard con módulo buck"
 description: "Monta una fuente ajustable de baja tensión para protoboard usando un módulo buck: materiales, cableado, ajuste, pruebas y seguridad."
-pubDate: 2026-11-20
+pubDate: 2026-11-19
 category: "Proyectos"
 tags: ["proyecto", "fuente", "buck", "protoboard", "alimentación"]
 section: "electronica-basica"
